@@ -1,0 +1,23 @@
+# Scratch & temporary development scripts
+scratch/
+*.bak
+*.tmp
+*.log
+*.sql
+*.tar.gz
+*.zip
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Environment & credentials
+.env
+.env.*
+wp-config.php
+
+# Node / Vendor if added later
+node_modules/
+vendor/

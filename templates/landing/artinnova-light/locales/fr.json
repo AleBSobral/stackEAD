@@ -1,0 +1,251 @@
+{
+  "lang": "fr",
+  "meta": {
+    "title": "Résidence Internationale ArtInnova | International Residency",
+    "description": "Résidence Internationale ArtInnova : une expérience franco-brésilienne de formation, de création et d'innovation en Arts Médiatiques. Inscriptions en 2026 ; ateliers janvier–avril 2027 et immersion en juin."
+  },
+  "nav": {
+    "brand_sub": "Résidence Internationale",
+    "experience": "L’expérience",
+    "audience": "Pour qui",
+    "bridges": "Passerelles",
+    "journey": "Parcours",
+    "award": "Prix",
+    "pricing": "Investissement",
+    "faq": "Questions",
+    "cta": "Je participe ↗"
+  },
+  "hero": {
+    "eyebrow": "Résidence Internationale ArtInnova · Brésil + France",
+    "title_part1": "Votre prochaine innovation commence par une ",
+    "title_accent": "passerelle.",
+    "lead": "Apprenez les Arts Médiatiques. Bâtissez des passerelles. Transformez les possibles en innovation.",
+    "cta_primary": "Rejoindre l'aventure ↗",
+    "cta_secondary": "Découvrir l’expérience ↓",
+    "meta_dates": "INSCRIPTIONS 2026 · PARCOURS JANVIER–AVRIL 2027",
+    "meta_text": "Une expérience internationale d'apprentissage, de création et de coopération reliant Campina Grande et Enghien-les-Bains. 60 participants : 50 au Brésil (40 places payantes et 10 bourses sociales) et 10 bourses sociales en France.",
+    "meta_price": "Frais : ~ 500 € EUR (Réf : 10 × 300 BRL par carte bancaire).",
+    "award_callout": "Super Prix : Immersion Internationale à Paris / Enghien-les-Bains",
+    "trust_guarantee": "Garantie satisfait ou remboursé 7 jours",
+    "trust_slots": "Promotion exclusive de 60 participants",
+    "meta_price_label": "Modalités d'inscription"
+  },
+  "metrics": {
+    "participants_val": "60",
+    "participants_label": "Participants de la promotion pilote (Brésil + France)",
+    "ateliers_val": "10",
+    "ateliers_label": "Ateliers hybrides et interdisciplinaires",
+    "cities_val": "02",
+    "cities_label": "Villes créatives UNESCO connectées",
+    "awards_val": "04",
+    "awards_label": "Séjours d’immersion internationale récompensés"
+  },
+  "experience": {
+    "eyebrow": "01 — L’expérience",
+    "title_part1": "Plus qu'apprendre. ",
+    "title_accent": "Créer ensemble.",
+    "intro": "ArtInnova réunit des créateurs et professionnels de divers horizons pour explorer les langages des Arts Médiatiques, développer des projets originaux et tisser des liens durables de coopération franco-brésilienne.",
+    "items": [
+      {
+        "num": "01",
+        "title": "Apprendre",
+        "desc": "Explorer les Arts Médiatiques, les technologies émergentes et le design d'innovation selon une approche interdisciplinaire."
+      },
+      {
+        "num": "02",
+        "title": "Créer",
+        "desc": "Concevoir une œuvre, un prototype interactif ou une initiative ancrée dans les enjeux réels de votre territoire."
+      },
+      {
+        "num": "03",
+        "title": "Relier",
+        "desc": "Rencontrer des pairs, mentors et réseaux créatifs d'excellence, ouvrant des horizons inédits entre le Brésil et la France."
+      }
+    ]
+  },
+  "stripe": "CRÉER. EXPÉRIMENTER. PARTAGER. RELIER.",
+  "audience": {
+    "eyebrow": "02 — Pour qui",
+    "title_part1": "Pour celles et ceux qui veulent plus que ",
+    "title_accent": "rêver le futur.",
+    "intro": "Pour des esprits curieux, dotés d'une sensibilité artistique ou technologique et animés par la volonté de concrétiser des projets porteurs de sens.",
+    "items": [
+      "Créateurs, artistes numériques, designers et scénographes",
+      "Entrepreneurs, technologues et professionnels de l’innovation",
+      "Enseignants, chercheurs et étudiants aux compétences affirmées",
+      "Responsables culturels, territoriaux et acteurs de l’écosystème créatif",
+      "Professionnels d'horizons variés souhaitant créer par les Arts Médiatiques"
+    ]
+  },
+  "bridges": {
+    "eyebrow": "03 — Passerelles internationales",
+    "title_part1": "De votre territoire vers un réseau ",
+    "title_accent": "sans frontières.",
+    "intro": "Cette promotion pilote naît de la coopération active entre Campina Grande (Brésil) et Enghien-les-Bains (France), en résonance avec les territoires créatifs mondiaux.",
+    "p1": "La coopération internationale et le Réseau Brésilien des Villes Créatives de l'UNESCO (RBCC) favorisent les synergies entre répertoires, défis et innovations. Les institutions partenaires et mentors invités seront annoncés dès validation.",
+    "disclaimer": "Les références au réseau RBCC et aux Villes Créatives décrivent des dynamiques de coopération ; elles n'impliquent pas une certification ou labellisation directe de l'UNESCO pour la Résidence."
+  },
+  "journey": {
+    "eyebrow": "04 — Programme formatif · calendrier prévisionnel",
+    "title_part1": "De vos idées à une création ",
+    "title_accent": "partagée.",
+    "intro": "Dix Ateliers répartis en deux cycles complémentaires, culminant avec le HackArtThon International en avril 2027. Cursus co-élaboré avec l'équipe française.",
+    "block1": {
+      "eyebrow": "Janvier–mars 2027 · 5 Ateliers asynchrones",
+      "title": "Fondamentaux et exploration",
+      "items": [
+        "Arts Médiatiques : un langage pour relier les mondes",
+        "Créativité humaine, IA et construction sociale du sens",
+        "Expériences phygitales et médias interactifs",
+        "Collaboration créative et création de passerelles",
+        "De l'intuition artistique au défi d'innovation"
+      ],
+      "note": "Livrables progressifs : cartographie personnelle, note d'intention, concept phygital, trame de passerelle et défi d'innovation."
+    },
+    "block2": {
+      "eyebrow": "Mars–avril 2027 · 5 Ateliers synchrones",
+      "title": "Spécialisation et immersion",
+      "items": [
+        "Studio International : enjeux et regards partagés",
+        "Technologies créatives pour le prototypage rapide",
+        "Arts Médiatiques live, hybrides et territoriaux",
+        "De la co-création à l'innovation durable",
+        "Préparation intensive au HackArtThon"
+      ],
+      "note": "Équipes interculturelles développant des prototypes, des tests d'interaction et des récits d'impact territorial."
+    },
+    "milestones": [
+      {
+        "date": "DÉC / 2026",
+        "title": "Accueil & Intégration",
+        "desc": "Rencontre de la communauté et prise en main des outils d'échange."
+      },
+      {
+        "date": "AVR / 2027",
+        "title": "HackArtThon",
+        "desc": "Défis concrets, co-création, prototypage et sélection des lauréats."
+      },
+      {
+        "date": "JUIN / 2027",
+        "title": "Immersion Internationale",
+        "desc": "Séjour d'expérimentation et de création pour les quatre lauréats."
+      }
+    ]
+  },
+  "award": {
+    "eyebrow": "05 — Media Arts Innovation Bridges",
+    "title_part1": "Media Arts Innovation Bridges",
+    "title_accent": "4 Bourses d'Immersion Présentielle Tout Compris en France et au Brésil",
+    "intro": "Une opportunité internationale d'échange pratique et curatorial : les projets développés en atelier concourent à quatre bourses intégrales couvrant billets d'avion internationaux, hébergement, assurance, per diem et atelier technique au prestigieux Centre des Arts d'Enghien-les-Bains (région parisienne) et à Campina Grande.",
+    "br_tag": "02 · BRÉSIL",
+    "br_title": "Deux lauréats parmi les 50 participants brésiliens",
+    "br_desc": "Ouvert à égalité aux participants payants et boursiers sociaux, sans distinction de statut.",
+    "fr_tag": "02 · FRANCE",
+    "fr_title": "Deux lauréats parmi les 10 participants français",
+    "fr_desc": "Les dix participants français rejoignent la promotion grâce aux bourses sociales d'engagement.",
+    "details": "La sélection aura lieu dans le cadre du HackArtThon d'avril sur la base de critères publics d'évaluation. Déplacement prévu en juin 2027. Conditions de prise en charge et formalités détaillées dans le règlement définitif.",
+    "cta_rules": "Consulter le projet de règlement ↗",
+    "badge": "Prix International d'Arts Médiatiques 2026 · France & Brésil",
+    "banner_title": "De votre création locale à la scène européenne de l'innovation",
+    "banner_desc": "Exposition de vos projets, échanges avec des laboratoires de recherche, ateliers avec des experts internationaux au cœur d'une ville créative UNESCO.",
+    "pillars": [
+      {
+        "title": "Vols & Hébergement 100% Pris en Charge",
+        "desc": "Prise en charge intégrale du transport aérien international, du séjour, des assurances et du per diem pour les lauréats sélectionnés par le jury binational."
+      },
+      {
+        "title": "Résidence au Centre des Arts (France)",
+        "desc": "Accès aux studios de pointe et aux technologies interactives de création contemporaine."
+      },
+      {
+        "title": "Mentorat Direct avec des Experts Européens",
+        "desc": "Séances de suivi individuel et collectif avec curateurs, artistes et chercheurs français."
+      },
+      {
+        "title": "Exposition Publique & Rayonnement",
+        "desc": "Diffusion et visibilité de vos œuvres auprès des réseaux culturels et festivals internationaux."
+      }
+    ],
+    "footer_title": "Critères Clairs et Équitables :"
+  },
+  "pricing": {
+    "eyebrow": "06 — Tarifs & Sérénité",
+    "title_part1": "Une formation internationale. Un investissement protégé par ",
+    "title_accent": "de véritables garanties.",
+    "intro": "Inscriptions et orientation en décembre 2026 ; Ateliers de janvier à avril 2027.",
+    "sub_intro": "En complément des inscriptions payantes, la promotion propose des opportunités d'engagement social au Brésil et en France selon des critères transparents.",
+    "badge": "Inscription Internationale · Promotion 2026",
+    "price_installments": "4 × €140",
+    "price_total": "Total : 560 € (Env. 3 000 R$ BRL)",
+    "price_sub": "Paiement sécurisé officiel en euros. Conditions transparentes et place confirmée dès validation.",
+    "cta": "Rejoindre la promotion ↗",
+    "guarantee_title": "Satisfaction Garantie ou Remboursement Intégral",
+    "guarantee_subtitle": "Nous croyons fermement à la qualité de nos ateliers et nous engageons formellement pour votre sérénité à travers deux garanties.",
+    "g1_title": "Découvrez la Première Semaine sans Risque",
+    "g1_desc": "Dès votre inscription validée, vous disposez de 7 jours consécutifs pour tester le programme. Si pour toute raison personnelle ou professionnelle vous souhaitez vous désister, un simple courriel suffit : nous vous remboursons 100 % du montant sans démarche complexe.",
+    "g2_title": "Engagement de Progression Pratique",
+    "g2_desc": "Si vous assistez à au moins 80 % des ateliers et estimez en toute bonne foi, au terme des 4 mois, que la formation n'a pas enrichi votre pratique artistique et professionnelle, vous pourrez demander le remboursement intégral des frais d'inscription."
+  },
+  "form": {
+    "eyebrow": "07 — Prochaine étape",
+    "title_part1": "Rejoignez-nous. Expérimentez. ",
+    "title_accent": "Participez.",
+    "intro": "Laissez vos coordonnées pour recevoir en priorité les informations finales et votre accès à l'inscription officielle dès son ouverture.",
+    "sub_intro": "Votre demande sera transmise directement à la coordination de la Résidence ArtInnova à l'adresse contact@artinnovaresidency.com.",
+    "label_name": "Nom et prénom *",
+    "label_email": "Adresse e-mail *",
+    "label_city": "Ville / Région / Pays *",
+    "label_profile": "Profil principal",
+    "profile_placeholder": "Sélectionnez votre profil",
+    "profile_opts": [
+      "Créateur / Artiste / Designer",
+      "Entrepreneur / Professionnel de l'innovation",
+      "Enseignant / Chercheur",
+      "Responsable culturel ou technologique",
+      "Autre profil interdisciplinaire"
+    ],
+    "label_referral": "Qui vous a recommandé ? (Ville créative, Point Focal ou partenaire)",
+    "label_consent": "J'autorise l'utilisation de mes données pour être contacté(e) au sujet de la Résidence ArtInnova. *",
+    "btn_submit": "Exprimer mon intérêt ↗",
+    "status_success": "Manifestation d'intérêt envoyée avec succès ! Nous vous avons envoyé un e-mail de confirmation et notre équipe vous contactera bientôt.",
+    "mail_subject": "Intérêt pour la Résidence ArtInnova — ",
+    "mail_intro": "Manifestation d'intérêt — Résidence Internationale ArtInnova"
+  },
+  "faq": {
+    "eyebrow": "Foire aux questions",
+    "title_part1": "Avant de bâtir votre ",
+    "title_accent": "passerelle.",
+    "items": [
+      {
+        "q": "Quand débute la Résidence ?",
+        "a": "Inscriptions en décembre 2026 ; formation de janvier à avril 2027 ; HackArtThon en avril ; séjour d'immersion des lauréats en juin 2027."
+      },
+      {
+        "q": "Quels sont les frais d'inscription et modalités de paiement ?",
+        "a": "Pour les résidents brésiliens : 3 000 BRL (jusqu'à 10 × 300 BRL par carte). À l'international : environ 500 € EUR ou 550 $ USD avec facilités de règlement."
+      },
+      {
+        "q": "Dois-je être un artiste chevronné ou un programmeur ?",
+        "a": "Non. Le programme est foncièrement interdisciplinaire et accueille les passionnés de création, design, pédagogie, gestion et technologies."
+      },
+      {
+        "q": "Qui sont les intervenants et quel est le format ?",
+        "a": "Les noms confirmés des maîtres brésiliens et français, le volume horaire et le format hybride (ateliers asynchrones et sessions synchrones) seront dévoilés avant l'ouverture des inscriptions."
+      },
+      {
+        "q": "Comment fonctionne le prix d'immersion internationale ?",
+        "a": "Quatre lauréats seront récompensés (deux Brésiliens et deux Français). Au Brésil, les inscrits payants et boursiers bénéficient d'une stricte égalité de chances lors de la sélection au HackArtThon d'avril."
+      },
+      {
+        "q": "La Résidence délivre-t-elle une attestation ?",
+        "a": "Oui. Les conditions de certification internationale et les labels institutionnels associés seront précisés avant le début du cycle."
+      }
+    ]
+  },
+  "footer": {
+    "brand_line": "Campina Grande · Brésil / Enghien-les-Bains · France",
+    "contact": "Contact officiel : contact@artinnovaresidency.com",
+    "institutional": "Residência Internacional ArtInnova",
+    "version": "ArtInnova Light Theme · 2026/2027"
+  }
+}

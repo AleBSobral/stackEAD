@@ -1,0 +1,272 @@
+/**
+ * W3C Cognitive and Learning Disabilities Accessibility (COGA) Stylesheet
+ * StackEAD Core - Inclusive Learning Experience
+ */
+
+/* 1. Focus Reading Ruler / Guia de Leitura Translúcida */
+.coga-reading-guide {
+	position: fixed;
+	left: 0;
+	right: 0;
+	height: 38px;
+	background: rgba(254, 240, 138, 0.22);
+	border-top: 2px solid rgba(234, 179, 8, 0.7);
+	border-bottom: 2px solid rgba(234, 179, 8, 0.7);
+	pointer-events: none;
+	z-index: 99999;
+	box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.35);
+	transition: top 0.05s linear;
+}
+
+/* 2. Adaptive Typography Classes */
+body.coga-font-lexend,
+body.coga-font-lexend * {
+	font-family: 'Lexend', sans-serif !important;
+}
+
+body.coga-font-opendyslexic,
+body.coga-font-opendyslexic * {
+	font-family: 'OpenDyslexic', 'Plus Jakarta Sans', sans-serif !important;
+}
+
+/* 3. Text Spacing (WCAG 1.4.12 & COGA) */
+body.coga-spacing-expanded p,
+body.coga-spacing-expanded span,
+body.coga-spacing-expanded div,
+body.coga-spacing-expanded li {
+	line-height: 2 !important;
+	letter-spacing: 0.12em !important;
+	word-spacing: 0.16em !important;
+}
+
+/* 4. High Contrast Mode */
+html[data-coga-contrast="high"] {
+	--bg-base: #000000 !important;
+	--bg-surface: #0a0a0a !important;
+	--bg-card: #000000 !important;
+	--bg-hover: #171717 !important;
+	--border: #ffff00 !important;
+	--text-main: #ffffff !important;
+	--text-muted: #facc15 !important;
+	--primary: #ffff00 !important;
+}
+
+html[data-coga-contrast="high"] .nav-link.active {
+	background: #ffff00 !important;
+	color: #000000 !important;
+	font-weight: 800 !important;
+}
+
+/* 5. Distraction-Free Focus Mode */
+body.coga-focus-mode .app-sidebar,
+body.coga-focus-mode .app-topbar {
+	display: none !important;
+}
+
+body.coga-focus-mode .app-main-wrapper {
+	margin-left: 0 !important;
+}
+
+body.coga-focus-mode .app-content-area {
+	max-width: 980px;
+	margin: 0 auto;
+	padding: 40px 20px;
+}
+
+/* Floating Exit Button for Focus Mode */
+#coga-exit-focus-btn {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	z-index: 10000;
+	background: rgba(17, 24, 39, 0.9);
+	color: #fff;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 9999px;
+	padding: 8px 16px;
+	font-size: 0.85rem;
+	font-weight: 600;
+	cursor: pointer;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+/* 6. COGA Dock Modal Overlay */
+.coga-dock-modal {
+	position: fixed;
+	top: 80px;
+	right: 32px;
+	width: 420px;
+	max-width: calc(100vw - 40px);
+	background: var(--bg-surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius-xl);
+	box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+	z-index: 200;
+	overflow: hidden;
+	animation: fadeInDown 0.25s ease;
+}
+
+@keyframes fadeInDown {
+	from { opacity: 0; transform: translateY(-10px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+.coga-dock-header {
+	padding: 18px 24px;
+	background: var(--bg-card);
+	border-bottom: 1px solid var(--border);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.coga-title {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: var(--accent);
+}
+
+.coga-title h3 {
+	font-size: 1rem;
+	font-weight: 700;
+	color: var(--text-main);
+}
+
+.coga-dock-body {
+	padding: 20px 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	max-height: 75vh;
+	overflow-y: auto;
+}
+
+.coga-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+}
+
+.coga-item-info strong {
+	display: block;
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: var(--text-main);
+	margin-bottom: 2px;
+}
+
+.coga-item-info span {
+	display: block;
+	font-size: 0.78rem;
+	color: var(--text-muted);
+	line-height: 1.35;
+}
+
+.coga-font-selector {
+	display: flex;
+	gap: 6px;
+}
+
+.btn-chip {
+	padding: 6px 12px;
+	border-radius: var(--radius-sm);
+	background: var(--bg-card);
+	border: 1px solid var(--border);
+	color: var(--text-main);
+	font-size: 0.78rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: var(--transition);
+}
+
+.btn-chip:hover {
+	background: var(--bg-hover);
+}
+
+.btn-chip.active {
+	background: var(--primary);
+	color: #fff;
+	border-color: var(--primary);
+}
+
+/* Switch Component - Accessible High-Contrast Design (WCAG 2.2 AA) */
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	height: 28px;
+	flex-shrink: 0;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+	position: absolute;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0; left: 0; right: 0; bottom: 0;
+	background-color: #cbd5e1; /* Clear neutral track on light background */
+	border: 2px solid #94a3b8; /* High contrast boundary */
+	transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+	border-radius: 28px;
+	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 20px;
+	width: 20px;
+	left: 2px;
+	bottom: 2px;
+	background-color: #ffffff;
+	border: 1px solid rgba(0, 0, 0, 0.18);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+	transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+	border-radius: 50%;
+}
+
+.switch input:focus-visible + .slider {
+	outline: 3px solid #2563eb;
+	outline-offset: 2px;
+}
+
+.switch input:checked + .slider {
+	background-color: #2563eb;
+	border-color: #1d4ed8;
+	box-shadow: 0 0 12px rgba(37, 99, 235, 0.45);
+}
+
+.switch input:checked + .slider:before {
+	transform: translateX(22px);
+	border-color: transparent;
+	background-color: #ffffff;
+}
+
+/* Dark Theme Adjustments for COGA Modal Switches */
+html[data-theme="dark"] .slider {
+	background-color: #334155;
+	border-color: #64748b;
+}
+
+html[data-theme="dark"] .slider:before {
+	background-color: #f8fafc;
+	border-color: rgba(0, 0, 0, 0.4);
+}
+
+html[data-theme="dark"] .switch input:checked + .slider {
+	background-color: #3b82f6;
+	border-color: #60a5fa;
+}
+

@@ -1,0 +1,251 @@
+{
+  "lang": "pt-BR",
+  "meta": {
+    "title": "Residência Internacional ArtInnova | International Residency",
+    "description": "Residência Internacional ArtInnova: uma experiência Brasil–França de formação, criação e inovação em Artes Midiáticas. Inscrições em 2026; formação janeiro–abril de 2027 e imersão premiada em junho."
+  },
+  "nav": {
+    "brand_sub": "Residência Internacional",
+    "experience": "A experiência",
+    "audience": "Para quem",
+    "bridges": "Pontes",
+    "journey": "Jornada",
+    "award": "Prêmio",
+    "pricing": "Investimento",
+    "faq": "Dúvidas",
+    "cta": "Tenho interesse ↗"
+  },
+  "hero": {
+    "eyebrow": "Residência Internacional ArtInnova · Brasil + França",
+    "title_part1": "Sua próxima inovação começa com uma ",
+    "title_accent": "ponte.",
+    "lead": "Aprenda Artes Midiáticas. Construa pontes. Transforme possibilidades em inovação.",
+    "cta_primary": "Quero participar ↗",
+    "cta_secondary": "Conheça a experiência ↓",
+    "meta_dates": "INSCRIÇÕES 2026 · FORMAÇÃO JANEIRO–ABRIL 2027",
+    "meta_text": "Uma experiência internacional de formação, criação e colaboração entre Campina Grande e Enghien-les-Bains. 60 participantes: 50 no Brasil (40 matrículas pagas e 10 sociais) e 10 matrículas sociais na França.",
+    "meta_price": "Brasil: 10 × R$ 300 no cartão de crédito.",
+    "award_callout": "Super Prêmio: Imersão Internacional em Paris/Enghien-les-Bains",
+    "trust_guarantee": "Garantia incondicional de 7 dias",
+    "trust_slots": "Turma exclusiva de 60 participantes",
+    "meta_price_label": "Condição de Inscrição"
+  },
+  "metrics": {
+    "participants_val": "60",
+    "participants_label": "Participantes na turma piloto (Brasil + França)",
+    "ateliers_val": "10",
+    "ateliers_label": "Ateliers híbridos e interdisciplinares",
+    "cities_val": "02",
+    "cities_label": "Cidades criativas UNESCO conectadas",
+    "awards_val": "04",
+    "awards_label": "Imersões internacionais com tudo pago"
+  },
+  "experience": {
+    "eyebrow": "01 — A experiência",
+    "title_part1": "Não é só aprender. É ",
+    "title_accent": "criar com outras pessoas.",
+    "intro": "A ArtInnova aproxima profissionais de diferentes áreas para experimentar linguagens das Artes Midiáticas, desenvolver iniciativas autorais e construir relações de cooperação que possam continuar além da Residência.",
+    "items": [
+      {
+        "num": "01",
+        "title": "Aprender",
+        "desc": "Explorar Artes Midiáticas, tecnologias e metodologias de inovação com uma abordagem interdisciplinar e imersiva."
+      },
+      {
+        "num": "02",
+        "title": "Criar",
+        "desc": "Desenvolver uma obra, protótipo ou iniciativa conectada a um desafio que faça sentido para você e seu território."
+      },
+      {
+        "num": "03",
+        "title": "Conectar",
+        "desc": "Conhecer outros participantes, mestres e redes criativas, ampliando oportunidades de colaboração bilateral Brasil–França."
+      }
+    ]
+  },
+  "stripe": "CRIAR. EXPERIMENTAR. COMPARTILHAR. CONECTAR.",
+  "audience": {
+    "eyebrow": "02 — Para quem",
+    "title_part1": "Para quem não se conforma em apenas ",
+    "title_accent": "imaginar o futuro.",
+    "intro": "Para pessoas com experiência, curiosidade, sensibilidade artística e tecnológica e vontade real de transformar ideias em iniciativas concretas.",
+    "items": [
+      "Criadores, artistas, designers e realizadores visuais",
+      "Empreendedores, tecnólogos e profissionais de inovação",
+      "Educadores, pesquisadores e estudantes com vivência profissional",
+      "Gestores de cultura, tecnologia e desenvolvimento territorial",
+      "Profissionais de outras áreas interessados em criar com Artes Midiáticas"
+    ]
+  },
+  "bridges": {
+    "eyebrow": "03 — Pontes internacionais",
+    "title_part1": "Do seu território para uma rede ",
+    "title_accent": "sem fronteiras.",
+    "intro": "A turma piloto nasce da cooperação entre Campina Grande, no Brasil, e Enghien-les-Bains, na França, dialogando com conexões desenvolvidas em cidades e territórios criativos globais.",
+    "p1": "A cooperação internacional e a mobilização da Rede Brasileira de Cidades Criativas da UNESCO (RBCC) ampliam as possibilidades de encontro entre repertórios, desafios e iniciativas. A participação de instituições e mestres específicos será divulgada após confirmação.",
+    "disclaimer": "A referência à RBCC e às cidades criativas descreve conexões de cooperação; não implica certificação ou chancela direta da UNESCO para a Residência."
+  },
+  "journey": {
+    "eyebrow": "04 — Programa formativo · calendário macro provisório",
+    "title_part1": "De suas ideias a uma criação ",
+    "title_accent": "compartilhada.",
+    "intro": "Dez Ateliers articulados em duas jornadas complementares, culminando no HackArtThon Internacional em abril de 2027. Conteúdos e datas em sintonia conjunta com a equipe francesa.",
+    "block1": {
+      "eyebrow": "Janeiro–março 2027 · 5 Ateliers assíncronos",
+      "title": "Formação básica",
+      "items": [
+        "Artes Midiáticas: uma linguagem para conectar mundos",
+        "Criatividade humana, IA e construção social de sentidos",
+        "Experiências figitais e mídias interativas",
+        "Colaboração criativa e construção de pontes",
+        "Da ideia criativa ao desafio de inovação"
+      ],
+      "note": "Produções progressivas: mapa pessoal, reflexão autoral, conceito figital, mapa de pontes e desafio de inovação."
+    },
+    "block2": {
+      "eyebrow": "Março–abril 2027 · 5 Ateliers síncronos",
+      "title": "Formação especializada",
+      "items": [
+        "Estúdio Internacional: interesses e desafios compartilhados",
+        "Tecnologias criativas para prototipação ágil",
+        "Artes Midiáticas ao vivo, híbridas e territoriais",
+        "Da cocriação à inovação sustentável",
+        "Preparação intensiva para o HackArtThon"
+      ],
+      "note": "Equipes interculturais desenvolvem propostas, protótipos, testes de interação e narrativas de impacto."
+    },
+    "milestones": [
+      {
+        "date": "DEZ / 2026",
+        "title": "Acolhimento",
+        "desc": "Integração da comunidade, alinhamento de ferramentas e ambientação."
+      },
+      {
+        "date": "ABR / 2027",
+        "title": "HackArtThon",
+        "desc": "Desafios reais, cocriação, prototipação e seleção dos premiados."
+      },
+      {
+        "date": "JUN / 2027",
+        "title": "Imersão Internacional",
+        "desc": "Experiência presencial enriquecedora para os quatro participantes premiados."
+      }
+    ]
+  },
+  "award": {
+    "eyebrow": "05 — Media Arts Innovation Bridges",
+    "title_part1": "Media Arts Innovation Bridges",
+    "title_accent": "4 Bolsas de Imersão Presencial com Tudo Pago na França e no Brasil",
+    "intro": "Uma oportunidade de intercâmbio prático e curatorial: os projetos desenvolvidos nos ateliês concorrem a quatro bolsas integrais com passagens aéreas internacionais, alojamento completo, seguro, per diem e ateliê técnico no prestigiado Centre des Arts em Enghien-les-Bains (região metropolitana de Paris) e em Campina Grande.",
+    "br_tag": "02 · BRASIL",
+    "br_title": "Dois premiados entre 50 participantes brasileiros",
+    "br_desc": "Elegíveis participantes de matrículas pagas e sociais, sem vantagem por modalidade de matrícula.",
+    "fr_tag": "02 · FRANÇA",
+    "fr_title": "Dois premiados entre 10 participantes franceses",
+    "fr_desc": "Os dez participantes franceses integram a turma exclusivamente por matrículas sociais.",
+    "details": "A escolha ocorrerá no contexto do HackArtThon de abril, segundo critérios previamente publicados. Viagem prevista para junho de 2027. Condições de custeio, documentação, elegibilidade e seleção serão detalhadas no regulamento definitivo.",
+    "cta_rules": "Ver minuta do regulamento ↗",
+    "badge": "Prêmio Internacional de Artes Midiáticas · França & Brasil",
+    "banner_title": "Da sua criação local para o palco da inovação europeia",
+    "banner_desc": "Exposição de projetos, intercâmbio com centros de pesquisa, ateliês com mestres internacionais e vivência em uma das cidades criativas mais emblemáticas do mundo.",
+    "pillars": [
+      {
+        "title": "Passagens & Hospedagem 100% Pagas",
+        "desc": "Custeio integral de transporte aéreo internacional, estadia e seguro para os residentes selecionados pela banca mista."
+      },
+      {
+        "title": "Residência no Centre des Arts (França)",
+        "desc": "Acesso a infraestrutura e ateliês profissionais de criação em artes midiáticas e tecnologias interativas na Europa."
+      },
+      {
+        "title": "Mentoria Direta com Mestres Europeus",
+        "desc": "Sessões individuais e em equipe com curadores, diretores artísticos e pesquisadores do ecossistema francês."
+      },
+      {
+        "title": "Apresentação Pública & Visibilidade",
+        "desc": "Mostra e divulgação do seu projeto para redes culturais internacionais, festivais de artes digitais e potenciais investidores."
+      }
+    ],
+    "footer_title": "Critérios Claros e Transparentes:"
+  },
+  "pricing": {
+    "eyebrow": "06 — Investimento & Segurança",
+    "title_part1": "Uma formação internacional. Um investimento protegido por ",
+    "title_accent": "garantias reais.",
+    "intro": "Inscrições e acolhimento previstos para dezembro de 2026; Ateliers de janeiro a abril de 2027.",
+    "sub_intro": "Além das matrículas pagas, o desenho da turma prevê oportunidades de participação social no Brasil e na França, conforme critérios e procedimentos transparentes a serem divulgados.",
+    "badge": "Matrícula Brasil · Turma 2026",
+    "price_installments": "10 × R$ 300",
+    "price_total": "Total: R$ 3.000 · Sem juros no cartão ou à vista",
+    "price_sub": "Condição especial de parcelamento. Checkout oficial e confirmação das condições comerciais sujeitos à abertura oficial das vagas.",
+    "cta": "Quero me inscrever na turma ↗",
+    "guarantee_title": "Satisfação Garantida ou Reembolso Integral",
+    "guarantee_subtitle": "Acreditamos tanto na qualidade dos nossos ateliês que assumimos o compromisso formal com a sua tranquilidade.",
+    "g1_title": "Experimente a Primeira Semana sem Risco",
+    "g1_desc": "Após a confirmação da sua matrícula, você tem 7 dias corridos para participar dos primeiros encontros e conhecer nossa metodologia. Se por qualquer motivo pessoal, profissional ou de agenda decidir não continuar, basta nos enviar um e-mail: estornamos 100% do valor pago, sem burocracia nem questionamentos.",
+    "g2_title": "Compromisso com o Seu Ganho Prático",
+    "g2_desc": "Se você comparecer a pelo menos 80% das atividades propostas e, ao término dos 4 meses de formação, avaliar de boa-fé que os conteúdos e ateliês não agregaram valor para seu percurso artístico e profissional, analisaremos seu caso para a devolução integral da taxa de matrícula."
+  },
+  "form": {
+    "eyebrow": "07 — Próximo passo",
+    "title_part1": "Entre. Experimente. ",
+    "title_accent": "Faça parte.",
+    "intro": "Deixe seu contato para receber as informações finais da turma piloto e o acesso prioritário à matrícula assim que o checkout oficial estiver disponível.",
+    "sub_intro": "Sua manifestação será encaminhada diretamente à equipe oficial da Residência ArtInnova através do e-mail contact@artinnovaresidency.com.",
+    "label_name": "Nome completo *",
+    "label_email": "E-mail de contato *",
+    "label_city": "Cidade / Estado / País *",
+    "label_profile": "Perfil principal",
+    "profile_placeholder": "Selecione seu perfil",
+    "profile_opts": [
+      "Criador(a) / Artista / Designer",
+      "Empreendedor(a) / Profissional de Inovação",
+      "Educador(a) / Pesquisador(a)",
+      "Gestor(a) Cultural ou Tecnológico",
+      "Outro perfil interdisciplinar"
+    ],
+    "label_referral": "Quem indicou? (Cidade criativa, Ponto Focal ou parceiro)",
+    "label_consent": "Autorizo o uso dos meus dados para contato sobre a Residência ArtInnova. *",
+    "btn_submit": "Manifestar interesse ↗",
+    "status_success": "Manifestação enviada com sucesso! Enviamos um e-mail de confirmação para você e nossa equipe entrará em contato em breve.",
+    "mail_subject": "Interesse na Residência ArtInnova — ",
+    "mail_intro": "Manifestação de interesse — Residência Internacional ArtInnova"
+  },
+  "faq": {
+    "eyebrow": "Dúvidas frequentes",
+    "title_part1": "Antes de construir sua ",
+    "title_accent": "ponte.",
+    "items": [
+      {
+        "q": "Quando começa a Residência?",
+        "a": "Inscrições e acolhimento em dezembro de 2026; formação prevista de janeiro a abril de 2027; HackArtThon em abril; imersão dos premiados em junho de 2027. Datas específicas serão confirmadas na abertura oficial."
+      },
+      {
+        "q": "Qual é o valor da matrícula e como funciona o pagamento?",
+        "a": "Para participantes brasileiros, R$ 3.000, parcelável em até 10 parcelas de R$ 300 no cartão de crédito. Para participantes internacionais, valores correspondentes em USD e EUR com conversão oficial."
+      },
+      {
+        "q": "Preciso ser artista profissional ou programador?",
+        "a": "Não necessariamente. A proposta é interdisciplinar e voltada a pessoas com repertórios diversos: design, educação, gestão, tecnologia, artes visuais ou curiosidade em inovação e colaboração."
+      },
+      {
+        "q": "Quem serão os mestres e qual será o formato das aulas?",
+        "a": "A equipe divulgará os nomes confirmados do Brasil e da França, a carga horária detalhada e o formato híbrido (ateliers assíncronos e encontros síncronos internacionais) antes do início das matrículas."
+      },
+      {
+        "q": "Como funciona o prêmio de imersão internacional?",
+        "a": "Serão premiados quatro participantes (dois brasileiros e dois franceses). No Brasil, a matrícula paga não confere nenhuma vantagem em relação às vagas sociais. A escolha ocorrerá no HackArtThon de abril com base em critérios públicos de mérito e colaboração."
+      },
+      {
+        "q": "A Residência oferece certificação?",
+        "a": "Sim. As condições de certificação internacional e a chancela das instituições responsáveis serão detalhadas antes do início do programa."
+      }
+    ]
+  },
+  "footer": {
+    "brand_line": "Campina Grande · Brasil / Enghien-les-Bains · França",
+    "contact": "Contato oficial: contact@artinnovaresidency.com",
+    "institutional": "Residência Internacional ArtInnova",
+    "version": "ArtInnova Light Theme · 2026/2027"
+  }
+}
