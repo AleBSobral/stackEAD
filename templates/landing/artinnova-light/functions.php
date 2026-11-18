@@ -39,7 +39,7 @@ add_action('after_setup_theme', 'artinnova_light_setup');
 
 // 2. Enqueue Styles & Scripts
 function artinnova_light_enqueue_assets() {
-    $theme_version = '2.0.2';
+    $theme_version = '2.0.3';
     $theme_uri = get_template_directory_uri();
 
     // Google Fonts
@@ -176,9 +176,24 @@ function artinnova_light_handle_lead_submission() {
     $profile  = isset($_POST['profile']) ? sanitize_text_field(trim($_POST['profile'])) : '';
     $referral = isset($_POST['referral']) ? sanitize_text_field(trim($_POST['referral'])) : (isset($_POST['country']) ? sanitize_text_field(trim($_POST['country'])) : '');
     $lang     = isset($_POST['lang']) ? strtolower(sanitize_text_field(trim($_POST['lang']))) : 'pt';
+    $consent_raw     = isset($_POST['consent']) ? strtolower(sanitize_text_field(trim($_POST['consent']))) : '';
+    $consent_given   = in_array($consent_raw, ['1', 'true', 'on', 'yes'], true);
+    $consent_version = isset($_POST['consent_version']) ? sanitize_text_field(trim($_POST['consent_version'])) : 'v2.0-LGPD-GDPR-2026';
 
     if (!in_array($lang, ['pt', 'en', 'es', 'fr'], true)) {
         $lang = 'pt';
+    }
+
+    if (!$consent_given) {
+        $consent_err = [
+            'en' => 'Explicit privacy consent (LGPD/GDPR) is required before submitting your request.',
+            'es' => 'Es obligatorio otorgar el consentimiento explícito de privacidad (LGPD/GDPR) para continuar.',
+            'fr' => 'Votre consentement explicite à la politique de confidentialité (RGPD/LGPD) est obligatoire.',
+            'pt' => 'É obrigatório autorizar a Política de Privacidade e Proteção de Dados (LGPD/GDPR) para prosseguir.'
+        ];
+        wp_send_json_error([
+            'message' => isset($consent_err[$lang]) ? $consent_err[$lang] : $consent_err['pt']
+        ], 400);
     }
 
     if (empty($name) || empty($email) || !is_email($email)) {
@@ -196,13 +211,14 @@ function artinnova_light_handle_lead_submission() {
     $timestamp = current_time('mysql');
 
     $post_content = sprintf(
-        "Candidato: %s\nE-mail: %s\nCidade / Estado / País: %s\nPerfil: %s\nOrigem / Indicação: %s\nIdioma da Inscrição: %s\nIP: %s\nData: %s",
+        "Candidato: %s\nE-mail: %s\nCidade / Estado / País: %s\nPerfil: %s\nOrigem / Indicação: %s\nIdioma da Inscrição: %s\nConsentimento LGPD/GDPR: Sim (%s)\nIP: %s\nData: %s",
         $name,
         $email,
         $city ?: 'Não informado',
         $profile ?: 'Não informado',
         $referral ?: 'Não informado',
         strtoupper($lang),
+        $consent_version,
         $ip,
         $timestamp
     );
@@ -227,6 +243,9 @@ function artinnova_light_handle_lead_submission() {
     update_post_meta($post_id, '_artinnova_referral', $referral);
     update_post_meta($post_id, '_artinnova_country', $referral); // compatibility
     update_post_meta($post_id, '_artinnova_lang', $lang);
+    update_post_meta($post_id, '_artinnova_consent_given', 1);
+    update_post_meta($post_id, '_artinnova_consent_version', $consent_version);
+    update_post_meta($post_id, '_artinnova_consent_at', $timestamp);
 
     // Also sync into stackead_leads CRM table if StackEAD Core is active
     global $wpdb;
@@ -235,19 +254,22 @@ function artinnova_light_handle_lead_submission() {
         $wpdb->insert(
             $leads_table,
             [
-                'course_id'  => 0,
-                'name'       => $name,
-                'email'      => $email,
-                'phone'      => '',
-                'city'       => $city,
-                'profile'    => $profile,
-                'referral'   => $referral ? $referral . ' (' . strtoupper($lang) . ')' : strtoupper($lang),
-                'status'     => 'new',
-                'ip_address' => $ip,
-                'created_at' => $timestamp,
-                'updated_at' => $timestamp,
+                'course_id'       => 0,
+                'name'            => $name,
+                'email'           => $email,
+                'phone'           => '',
+                'city'            => $city,
+                'profile'         => $profile,
+                'referral'        => $referral ? $referral . ' (' . strtoupper($lang) . ')' : strtoupper($lang),
+                'status'          => 'new',
+                'consent_given'   => 1,
+                'consent_version' => $consent_version,
+                'lang'            => $lang,
+                'ip_address'      => $ip,
+                'created_at'      => $timestamp,
+                'updated_at'      => $timestamp,
             ],
-            ['%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s']
+            ['%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%s', '%s', '%s', '%s', '%s']
         );
     }
 
@@ -262,6 +284,7 @@ function artinnova_light_handle_lead_submission() {
                   . "Perfil Principal: " . ($profile ?: 'Não informado') . "\n"
                   . "Quem Indicou / Origem: " . ($referral ?: 'Não informado') . "\n"
                   . "Idioma Selecionado: " . strtoupper($lang) . "\n"
+                  . "Consentimento LGPD & GDPR: Autorizado (" . $consent_version . ")\n"
                   . "Data e Hora: " . current_time('d/m/Y H:i:s') . "\n"
                   . "IP do Solicitante: " . $ip . "\n"
                   . "--------------------------------------------------\n\n"
@@ -294,7 +317,8 @@ function artinnova_light_handle_lead_submission() {
                                . "• Email: {$email}\n"
                                . "• Location: " . ($city ?: 'Not specified') . "\n"
                                . "• Profile: " . ($profile ?: 'Not specified') . "\n\n"
-                               . "If you have any questions, feel free to reply directly to this message or write to us at contact@artinnovaresidency.com.\n\n"
+                               . "Privacy & Data Protection Notice (GDPR / LGPD):\n"
+                               . "Your personal data is processed with your explicit consent ({$consent_version}) by the bilateral ArtInnova coordination (Brazil & France/EU). To exercise your rights of access, rectification, portability, consent withdrawal, or erasure, write to our DPO at contact@artinnovaresidency.com.\n\n"
                                . "Warm regards,\n"
                                . "ArtInnova Residency Team\n"
                                . "https://artinnovaresidency.com\n";
@@ -311,7 +335,8 @@ function artinnova_light_handle_lead_submission() {
                                . "• Correo electrónico: {$email}\n"
                                . "• Ubicación: " . ($city ?: 'No especificado') . "\n"
                                . "• Perfil: " . ($profile ?: 'No especificado') . "\n\n"
-                               . "Si tiene alguna consulta, puede responder directamente a este correo o escribirnos a contact@artinnovaresidency.com.\n\n"
+                               . "Aviso de Privacidad y Protección de Datos (LGPD / GDPR):\n"
+                               . "Sus datos personales se tratan conforme a su consentimiento expreso ({$consent_version}) por la coordinación bilateral ArtInnova (Brasil y Francia/UE). Para ejercer sus derechos de acceso, rectificación, portabilidad o supresión, escriba a nuestro DPO: contact@artinnovaresidency.com.\n\n"
                                . "Saludos cordiales,\n"
                                . "Equipo Residencia ArtInnova\n"
                                . "https://artinnovaresidency.com\n";
@@ -328,7 +353,8 @@ function artinnova_light_handle_lead_submission() {
                                . "• E-mail : {$email}\n"
                                . "• Localisation : " . ($city ?: 'Non spécifié') . "\n"
                                . "• Profil : " . ($profile ?: 'Non spécifié') . "\n\n"
-                               . "Pour toute question, n'hésitez pas à répondre directement à ce message ou à nous écrire à contact@artinnovaresidency.com.\n\n"
+                               . "Protection des données personnelles (RGPD / GDPR · LGPD) :\n"
+                               . "Vos données sont traitées sur la base de votre consentement exprès ({$consent_version}) par la coordination bilatérale France (UE) / Brésil. Pour exercer vos droits d'accès, de rectification, de portabilité, de retrait ou d'effacement, contactez notre DPO : contact@artinnovaresidency.com.\n\n"
                                . "Bien cordialement,\n"
                                . "L'équipe de la Résidence ArtInnova\n"
                                . "https://artinnovaresidency.com\n";
@@ -345,7 +371,8 @@ function artinnova_light_handle_lead_submission() {
                                . "• E-mail: {$email}\n"
                                . "• Localização: " . ($city ?: 'Não informada') . "\n"
                                . "• Perfil Principal: " . ($profile ?: 'Não informado') . "\n\n"
-                               . "Caso tenha alguma dúvida, basta responder diretamente a esta mensagem ou escrever para contact@artinnovaresidency.com.\n\n"
+                               . "Transparência & Privacidade (LGPD Brasil · GDPR União Europeia):\n"
+                               . "Seus dados são tratados mediante seu consentimento ({$consent_version}) pela coordenação bilateral Brasil–França. Você pode solicitar acesso, retificação, portabilidade ou eliminação definitiva a qualquer momento escrevendo para o nosso DPO em contact@artinnovaresidency.com.\n\n"
                                . "Com estima,\n"
                                . "Equipe Residência ArtInnova\n"
                                . "https://artinnovaresidency.com\n";

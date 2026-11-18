@@ -5990,14 +5990,14 @@
 
 			contentRoot.innerHTML = `
 				<div class="leads-desk-wrapper">
-					<div class="desk-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px;">
+					<div class="desk-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 28px;">
 						<div>
-							<h2 style="font-size: 1.6rem; font-weight: 800; color: var(--text-main); margin-bottom: 4px;">Leads & Inscrições</h2>
-							<p style="color: var(--text-muted); font-size: 0.95rem;">Contatos qualificados capturados através da Landing Page do curso e formulários de interesse.</p>
+							<h2 style="font-size: 1.6rem; font-weight: 800; color: var(--text-main); margin-bottom: 4px;">Leads & Inscrições (LGPD / GDPR)</h2>
+							<p style="color: var(--text-muted); font-size: 0.95rem;">Contatos capturados com registro de consentimento auditável e atendimento a direitos do titular (exclusão/portabilidade).</p>
 						</div>
 						<div style="display: flex; gap: 12px; align-items: center;">
 							<span class="badge badge-success" style="padding: 8px 14px; font-size: 14px;">${leads.length} Inscritos</span>
-							<a href="${API.root}leads/export-csv" class="btn btn-secondary" target="_blank" download>
+							<a href="${API.root}leads/export-csv?_wpnonce=${encodeURIComponent(API.nonce)}" class="btn btn-secondary" target="_blank" download>
 								<i data-lucide="download"></i> Exportar CSV
 							</a>
 						</div>
@@ -6010,36 +6010,47 @@
 							<p style="color: var(--text-muted);">As manifestações de interesse da Landing Page aparecerão aqui automaticamente.</p>
 						</div>
 					` : `
-						<div class="card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden;">
+						<div class="card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow-x: auto;">
 							<table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
 								<thead>
 									<tr style="background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--border); color: var(--text-muted);">
-										<th style="padding: 14px 20px;">Nome</th>
-										<th style="padding: 14px 20px;">E-mail</th>
-										<th style="padding: 14px 20px;">WhatsApp</th>
-										<th style="padding: 14px 20px;">Cidade</th>
-										<th style="padding: 14px 20px;">Perfil</th>
-										<th style="padding: 14px 20px;">Data</th>
-										<th style="padding: 14px 20px; text-align: right;">Ação</th>
+										<th style="padding: 14px 16px;">Nome</th>
+										<th style="padding: 14px 16px;">E-mail</th>
+										<th style="padding: 14px 16px;">Cidade / País</th>
+										<th style="padding: 14px 16px;">Perfil</th>
+										<th style="padding: 14px 16px;">Conformidade LGPD/GDPR</th>
+										<th style="padding: 14px 16px;">Data</th>
+										<th style="padding: 14px 16px; text-align: right;">Ações</th>
 									</tr>
 								</thead>
 								<tbody>
 									${leads.map(l => {
-										const cleanPhone = (l.phone || '').replace(/[^0-9]/g, '');
+										const cleanPhone = String(l.phone || '').replace(/[^0-9]/g, '');
+										const consentVer = escapeHtml(l.consent_version || 'v2.0-LGPD-GDPR');
+										const hasConsent = l.consent_given === undefined || String(l.consent_given) === '1' || l.consent_given === true;
+										const langCode = escapeHtml((l.lang || 'pt').toUpperCase());
 										return `
-											<tr style="border-bottom: 1px solid var(--border);">
-												<td style="padding: 14px 20px; font-weight: 600; color: var(--text-main);">${l.name}</td>
-												<td style="padding: 14px 20px; color: var(--text-muted);">${l.email}</td>
-												<td style="padding: 14px 20px; color: var(--text-muted);">${l.phone || '—'}</td>
-												<td style="padding: 14px 20px; color: var(--text-muted);">${l.city || '—'}</td>
-												<td style="padding: 14px 20px;"><span class="badge badge-info">${l.profile || 'Geral'}</span></td>
-												<td style="padding: 14px 20px; color: var(--text-muted); font-size: 0.8rem;">${l.created_at}</td>
-												<td style="padding: 14px 20px; text-align: right;">
+											<tr style="border-bottom: 1px solid var(--border);" data-lead-row="${l.id}">
+												<td style="padding: 14px 16px; font-weight: 600; color: var(--text-main);">${escapeHtml(l.name)}</td>
+												<td style="padding: 14px 16px; color: var(--text-muted);">${escapeHtml(l.email)}</td>
+												<td style="padding: 14px 16px; color: var(--text-muted);">${escapeHtml(l.city || '—')}</td>
+												<td style="padding: 14px 16px;"><span class="badge badge-info">${escapeHtml(l.profile || 'Geral')}</span></td>
+												<td style="padding: 14px 16px;">
+													<span class="badge badge-success" style="font-size: 0.74rem; display: inline-flex; align-items: center; gap: 4px;" title="Versão da Política: ${consentVer} | Idioma: ${langCode}">
+														<i data-lucide="shield-check" style="width: 12px; height: 12px;"></i>
+														${hasConsent ? `LGPD/GDPR Consentido (${langCode})` : 'Pendente'}
+													</span>
+												</td>
+												<td style="padding: 14px 16px; color: var(--text-muted); font-size: 0.8rem;">${escapeHtml(l.created_at)}</td>
+												<td style="padding: 14px 16px; text-align: right; white-space: nowrap;">
 													${cleanPhone ? `
-														<a href="https://wa.me/${cleanPhone}" target="_blank" class="btn btn-sm btn-primary" style="display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; font-size: 12px; border-radius: 6px;">
+														<a href="https://wa.me/${cleanPhone}" target="_blank" class="btn btn-sm btn-primary" style="display: inline-flex; align-items: center; gap: 4px; padding: 5px 10px; font-size: 12px; border-radius: 6px;">
 															<i data-lucide="phone"></i> WhatsApp
 														</a>
 													` : ''}
+													<button type="button" class="btn btn-sm btn-delete-lead" data-id="${l.id}" data-name="${escapeHtml(l.name)}" style="display: inline-flex; align-items: center; gap: 4px; padding: 5px 10px; font-size: 12px; border-radius: 6px; background: rgba(239,68,68,0.12); color: #f87171; border: 1px solid rgba(239,68,68,0.28); cursor: pointer; margin-left: 6px;" title="Excluir permanentemente em atendimento ao Direito ao Esquecimento (LGPD Art. 18 / GDPR Art. 17)">
+														<i data-lucide="trash-2" style="width: 13px; height: 13px;"></i> Excluir (LGPD/GDPR)
+													</button>
 												</td>
 											</tr>
 										`;
@@ -6052,6 +6063,25 @@
 			`;
 
 			if (window.lucide) window.lucide.createIcons();
+
+			contentRoot.querySelectorAll('.btn-delete-lead').forEach(btn => {
+				btn.addEventListener('click', async () => {
+					const leadId = btn.dataset.id;
+					const leadName = btn.dataset.name || 'este titular';
+					if (!confirm(`Confirmar exclusão permanente (LGPD/GDPR — Direito ao Esquecimento) dos dados de ${leadName}? Esta ação não pode ser desfeita.`)) {
+						return;
+					}
+					btn.disabled = true;
+					try {
+						await fetchAPI(`leads/${leadId}`, 'DELETE');
+						showToast('Registro excluído permanentemente em conformidade com LGPD/GDPR.', 'success');
+						renderLeadsAdminView();
+					} catch (err) {
+						showToast(err.message || 'Erro ao excluir lead.', 'danger');
+						btn.disabled = false;
+					}
+				});
+			});
 
 		} catch (err) {
 			renderError('Não foi possível carregar a lista de leads.');
@@ -7266,63 +7296,201 @@
 	}
 
 	/* ==========================================================================
-	   19. User Profile Modal & Avatar Management
+	   19. User Profile & LGPD / GDPR Privacy Center (Full-Page View)
 	   ========================================================================== */
-	function openUserProfileModal() {
+	async function openUserProfileModal() {
 		const user = API.user;
 		if (!user) return;
+
+		const previousView = state.currentView || 'dashboard';
+		if (viewTitle) viewTitle.textContent = 'Meu Perfil & Privacidade (LGPD / GDPR)';
+		window.scrollTo({ top: 0, behavior: 'smooth' });
 
 		const avatarSrc = user.avatar_url || '';
 		const initials = (user.name || 'US').substring(0, 2).toUpperCase();
 
-		const modal = document.createElement('div');
-		modal.className = 'modal-backdrop';
-		modal.innerHTML = `
-			<div class="modal-card" style="max-width: 480px; width: 92%;">
-				<div class="modal-header">
-					<h3><i data-lucide="user-check"></i> Meu Perfil</h3>
-					<button class="btn-icon btn-close-modal">&times;</button>
+		let privacyData = {
+			consents: {
+				essential_academic: true,
+				academic_communications: true,
+				learning_analytics: false,
+				international_transfer: true,
+				policy_version: 'v2.0-LGPD-GDPR-2026',
+				updated_at: ''
+			},
+			erasure_request: null
+		};
+
+		try {
+			privacyData = await fetchAPI('privacy/consent');
+		} catch (err) {
+			console.warn('Privacy settings fallback:', err);
+		}
+
+		const c = privacyData.consents || {};
+		const erasureReq = privacyData.erasure_request;
+
+		contentRoot.innerHTML = `
+			<div class="page-form-wrapper">
+				<div class="page-form-topbar">
+					<button type="button" class="btn-back-page" id="btn-back-from-profile">
+						<i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i>
+						Voltar ao Painel
+					</button>
+					<span class="badge badge-success" style="padding: 6px 12px; display: inline-flex; align-items: center; gap: 6px;">
+						<i data-lucide="shield-check" style="width: 14px; height: 14px;"></i>
+						LGPD (BR) · GDPR / RGPD (UE)
+					</span>
 				</div>
-				<div style="padding: 28px 24px; text-align: center;">
-					<div class="profile-avatar-preview" id="profile-avatar-trigger" title="Clique para alterar sua foto de perfil">
-						${avatarSrc ? `<img src="${avatarSrc}" id="profile-modal-avatar-img" alt="${user.name}">` : `<div style="width:100%;height:100%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700;">${initials}</div>`}
-						<div class="profile-avatar-overlay">
-							<i data-lucide="camera" style="width: 20px; height: 20px;"></i>
-							<span>Alterar Foto</span>
+
+				<!-- Seção 1: Meu Perfil & Avatar -->
+				<div class="page-form-section">
+					<div class="page-form-section-title">
+						<i data-lucide="user-check" style="color: var(--primary);"></i>
+						1. Meu Perfil Institucional & Avatar WebP
+					</div>
+					<p class="page-form-section-desc">Gerencie sua identidade visual e visualize seus papéis ativos na Residência ArtInnova.</p>
+
+					<div style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap;">
+						<div style="text-align: center;">
+							<div class="profile-avatar-preview" id="profile-avatar-trigger" title="Clique para alterar sua foto de perfil" style="margin: 0 auto 12px;">
+								${avatarSrc ? `<img src="${escapeHtml(avatarSrc)}" id="profile-modal-avatar-img" alt="${escapeHtml(user.name)}">` : `<div style="width:100%;height:100%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700;">${escapeHtml(initials)}</div>`}
+								<div class="profile-avatar-overlay">
+									<i data-lucide="camera" style="width: 20px; height: 20px;"></i>
+									<span>Alterar Foto</span>
+								</div>
+							</div>
+							<button type="button" class="btn btn-sm btn-secondary" id="btn-change-avatar-action">
+								<i data-lucide="camera"></i> Alterar Foto (1:1 WebP)
+							</button>
+						</div>
+
+						<div style="flex: 1; min-width: 240px;">
+							<h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-main); margin-bottom: 6px;">${escapeHtml(user.name)}</h3>
+							<div style="margin-bottom: 10px;">
+								<span class="badge badge-primary">${escapeHtml(user.role_label || user.role)}</span>
+							</div>
+							<p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 16px;">${escapeHtml(user.email)}</p>
+
+							<div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; font-size: 0.85rem;">
+								<div>
+									<span style="color: var(--text-muted); display: block;">ID da Conta</span>
+									<strong style="color: var(--text-main);">#${user.id}</strong>
+								</div>
+								<div>
+									<span style="color: var(--text-muted); display: block;">Nível de XP</span>
+									<strong style="color: var(--primary);">Nível ${user.gamification ? user.gamification.level : 1}</strong>
+								</div>
+								<div>
+									<span style="color: var(--text-muted); display: block;">Versão da Política</span>
+									<strong style="color: var(--text-main);">${escapeHtml(c.policy_version || 'v2.0-LGPD-GDPR-2026')}</strong>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Seção 2: Preferências Granulares de Privacidade -->
+				<div class="page-form-section">
+					<div class="page-form-section-title">
+						<i data-lucide="sliders" style="color: var(--primary);"></i>
+						2. Gestão de Consentimentos (LGPD Art. 8º & GDPR Art. 7º)
+					</div>
+					<p class="page-form-section-desc">Você pode gerenciar e revogar seus consentimentos não essenciais a qualquer momento. Última atualização: <strong>${escapeHtml(c.updated_at || 'Padrão inicial')}</strong>.</p>
+
+					<form id="form-privacy-consents" style="display: flex; flex-direction: column; gap: 12px;">
+						<label class="role-card-label" style="opacity: 0.85; cursor: default;">
+							<input type="checkbox" checked disabled style="margin-top: 3px;">
+							<div>
+								<strong style="display: block; font-size: 0.94rem; color: var(--text-main);">Dados Acadêmicos & Autenticação Essencial (Obrigatório)</strong>
+								<span style="font-size: 0.82rem; color: var(--text-muted); display: block;">Base Legal: Execução de contrato e obrigação regulatória (LGPD Art. 7º V / GDPR Art. 6.1.b). Necessário para matrículas, progresso de aulas, segurança de sessão e emissão de certificados.</span>
+							</div>
+						</label>
+
+						<label class="role-card-label">
+							<input type="checkbox" id="priv-comm" name="academic_communications" ${c.academic_communications !== false ? 'checked' : ''} style="margin-top: 3px;">
+							<div>
+								<strong style="display: block; font-size: 0.94rem; color: var(--text-main);">Comunicações Institucionais & Convocatórias</strong>
+								<span style="font-size: 0.82rem; color: var(--text-muted); display: block;">Recebimento de informes sobre ateliês, HackArtThon, editais e avisos da coordenação bilateral Brasil–França.</span>
+							</div>
+						</label>
+
+						<label class="role-card-label">
+							<input type="checkbox" id="priv-analytics" name="learning_analytics" ${c.learning_analytics ? 'checked' : ''} style="margin-top: 3px;">
+							<div>
+								<strong style="display: block; font-size: 0.94rem; color: var(--text-main);">Analytics Pedagógico Anonimizado & Acessibilidade COGA</strong>
+								<span style="font-size: 0.82rem; color: var(--text-muted); display: block;">Métricas agregadas de usabilidade para aprimoramento contínuo da experiência de aprendizagem inclusiva (GDPR *Privacy by Default*: desativado por padrão).</span>
+							</div>
+						</label>
+
+						<label class="role-card-label">
+							<input type="checkbox" id="priv-intl" name="international_transfer" ${c.international_transfer !== false ? 'checked' : ''} style="margin-top: 3px;">
+							<div>
+								<strong style="display: block; font-size: 0.94rem; color: var(--text-main);">Cooperação & Transferência Internacional Brasil ↔ França (UE)</strong>
+								<span style="font-size: 0.82rem; color: var(--text-muted); display: block;">Compartilhamento estritamente acadêmico entre a equipe de Campina Grande (Brasil) e Enghien-les-Bains (França/UE) sob salvaguardas LGPD Art. 33 e GDPR Capítulo V (Arts. 44–49).</span>
+							</div>
+						</label>
+
+						<div style="display: flex; justify-content: flex-end; margin-top: 6px;">
+							<button type="submit" class="btn btn-primary" id="btn-save-privacy-prefs">
+								<i data-lucide="save"></i> Salvar Preferências de Privacidade
+							</button>
+						</div>
+					</form>
+				</div>
+
+				<!-- Seção 3: Direitos do Titular (Portabilidade & Exclusão) -->
+				<div class="page-form-section">
+					<div class="page-form-section-title">
+						<i data-lucide="file-lock-2" style="color: var(--primary);"></i>
+						3. Direitos do Titular: Acesso, Portabilidade & Esquecimento
+					</div>
+					<p class="page-form-section-desc">Exerça diretamente seus direitos garantidos pela <strong>LGPD (Art. 18 — ANPD Brasil)</strong> e pelo <strong>GDPR (Arts. 15, 17 e 20 — CNIL França / UE)</strong>.</p>
+
+					<div class="form-grid-2" style="margin-bottom: 18px;">
+						<div style="padding: 18px; border: 1.5px solid var(--border); border-radius: 14px; background: var(--bg-surface);">
+							<strong style="display: block; font-size: 0.96rem; color: var(--text-main); margin-bottom: 6px;">
+								<i data-lucide="download" style="width: 16px; height: 16px; color: #38bdf8; vertical-align: -2px;"></i> Acesso & Portabilidade (JSON)
+							</strong>
+							<p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px; line-height: 1.45;">Gere e baixe uma cópia estruturada e legível por máquina com todos os seus dados pessoais, consentimentos, turmas, progresso, entregas e histórico financeiro.</p>
+							<button type="button" class="btn btn-secondary" id="btn-download-my-data" style="width: 100%;">
+								<i data-lucide="file-json"></i> Baixar Meus Dados Pessoais (JSON)
+							</button>
+						</div>
+
+						<div style="padding: 18px; border: 1.5px solid rgba(239,68,68,0.3); border-radius: 14px; background: rgba(239,68,68,0.04);">
+							<strong style="display: block; font-size: 0.96rem; color: #f87171; margin-bottom: 6px;">
+								<i data-lucide="trash-2" style="width: 16px; height: 16px; vertical-align: -2px;"></i> Direito ao Esquecimento / Exclusão
+							</strong>
+							<p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px; line-height: 1.45;">Solicite formalmente ao Encarregado de Dados (DPO) a eliminação ou anonimização dos seus dados (prazo legal: até 15 dias LGPD / 30 dias GDPR).</p>
+							${erasureReq ? `
+								<div style="padding: 10px 12px; border-radius: 10px; background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.35); font-size: 0.8rem; color: #fbbf24;">
+									<strong>Protocolo Ativo: ${escapeHtml(erasureReq.protocol_id)}</strong><br>
+									Solicitado em ${escapeHtml(erasureReq.requested_at)} · Em análise pelo DPO.
+								</div>
+							` : `
+								<button type="button" class="btn" id="btn-request-erasure" style="width: 100%; background: rgba(239,68,68,0.14); color: #f87171; border: 1px solid rgba(239,68,68,0.35);">
+									<i data-lucide="alert-triangle"></i> Solicitar Exclusão / Anonimização ao DPO
+								</button>
+							`}
 						</div>
 					</div>
 
-					<h3 style="font-size: 1.3rem; font-weight: 700; color: var(--text-main); margin-bottom: 4px;">${user.name}</h3>
-					<span class="badge badge-primary" style="margin-bottom: 16px;">${user.role_label || user.role}</span>
-					<p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px;">${user.email}</p>
-
-					<div style="background: var(--bg-main); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px; margin-bottom: 24px; text-align: left; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 0.85rem;">
-						<div>
-							<span style="color: var(--text-muted); display: block;">ID da Conta:</span>
-							<strong style="color: var(--text-main);">#${user.id}</strong>
-						</div>
-						<div>
-							<span style="color: var(--text-muted); display: block;">Nível de XP:</span>
-							<strong style="color: var(--primary);">Nível ${user.gamification ? user.gamification.level : 1}</strong>
-						</div>
-					</div>
-
-					<div style="display: flex; gap: 10px; justify-content: center;">
-						<button type="button" class="btn btn-primary" id="btn-change-avatar-action">
-							<i data-lucide="camera"></i> Alterar Foto com Recorte 1:1
-						</button>
-						<button type="button" class="btn btn-secondary btn-close-modal">Fechar</button>
+					<div style="padding: 14px 18px; border-radius: 12px; background: var(--bg-surface); border: 1px solid var(--border); font-size: 0.82rem; color: var(--text-muted); line-height: 1.55;">
+						<strong style="color: var(--text-main);">Controlador Bilateral & Encarregado de Proteção de Dados (DPO):</strong><br>
+						Residência Internacional ArtInnova (Campina Grande, Brasil · Enghien-les-Bains, França).<br>
+						Canal oficial do DPO: <a href="mailto:contact@artinnovaresidency.com" style="color: var(--primary); font-weight: 700;">contact@artinnovaresidency.com</a> · Autoridades supervisoras competentes: <strong>ANPD (Brasil)</strong> e <strong>CNIL (França / União Europeia)</strong>.
 					</div>
 				</div>
 			</div>
 		`;
 
-		document.body.appendChild(modal);
 		if (window.lucide) window.lucide.createIcons();
 
-		modal.querySelectorAll('.btn-close-modal').forEach(b => {
-			b.addEventListener('click', () => modal.remove());
-		});
+		const backBtn = document.getElementById('btn-back-from-profile');
+		if (backBtn) {
+			backBtn.addEventListener('click', () => navigate(previousView));
+		}
 
 		const triggerCrop = () => {
 			openCropModal({
@@ -7332,12 +7500,10 @@
 				onComplete: (data) => {
 					if (data.avatar_url) {
 						user.avatar_url = data.avatar_url;
-
-						// Update modal avatar
-						const previewDiv = modal.querySelector('.profile-avatar-preview');
+						const previewDiv = document.getElementById('profile-avatar-trigger');
 						if (previewDiv) {
 							previewDiv.innerHTML = `
-								<img src="${data.avatar_url}" id="profile-modal-avatar-img" alt="${user.name}">
+								<img src="${escapeHtml(data.avatar_url)}" id="profile-modal-avatar-img" alt="${escapeHtml(user.name)}">
 								<div class="profile-avatar-overlay">
 									<i data-lucide="camera" style="width: 20px; height: 20px;"></i>
 									<span>Alterar Foto</span>
@@ -7345,19 +7511,85 @@
 							`;
 							if (window.lucide) window.lucide.createIcons();
 						}
-
-						// Update sidebar user avatar
 						const sideAvatar = document.getElementById('sidebar-user-avatar');
 						if (sideAvatar) {
-							sideAvatar.innerHTML = `<img src="${data.avatar_url}" alt="${user.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">`;
+							sideAvatar.innerHTML = `<img src="${escapeHtml(data.avatar_url)}" alt="${escapeHtml(user.name)}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">`;
 						}
 					}
 				}
 			});
 		};
 
-		modal.querySelector('#profile-avatar-trigger').addEventListener('click', triggerCrop);
-		modal.querySelector('#btn-change-avatar-action').addEventListener('click', triggerCrop);
+		document.getElementById('profile-avatar-trigger')?.addEventListener('click', triggerCrop);
+		document.getElementById('btn-change-avatar-action')?.addEventListener('click', triggerCrop);
+
+		// Save granular LGPD/GDPR consents
+		const consentForm = document.getElementById('form-privacy-consents');
+		if (consentForm) {
+			consentForm.addEventListener('submit', async (e) => {
+				e.preventDefault();
+				const btn = document.getElementById('btn-save-privacy-prefs');
+				btn.disabled = true;
+				try {
+					await fetchAPI('privacy/consent', 'POST', {
+						academic_communications: document.getElementById('priv-comm')?.checked || false,
+						learning_analytics: document.getElementById('priv-analytics')?.checked || false,
+						international_transfer: document.getElementById('priv-intl')?.checked || false
+					});
+					showToast('Preferências de privacidade (LGPD/GDPR) salvas com sucesso!', 'success');
+				} catch (err) {
+					showToast(err.message || 'Erro ao salvar preferências.', 'danger');
+				} finally {
+					btn.disabled = false;
+				}
+			});
+		}
+
+		// Portability download JSON
+		const downloadBtn = document.getElementById('btn-download-my-data');
+		if (downloadBtn) {
+			downloadBtn.addEventListener('click', async () => {
+				downloadBtn.disabled = true;
+				try {
+					const pkg = await fetchAPI('privacy/my-data');
+					const blob = new Blob([JSON.stringify(pkg, null, 2)], { type: 'application/json;charset=utf-8' });
+					const url = URL.createObjectURL(blob);
+					const a = document.createElement('a');
+					a.href = url;
+					a.download = `artinnova-meus-dados-lgpd-gdpr-${user.id}.json`;
+					document.body.appendChild(a);
+					a.click();
+					a.remove();
+					URL.revokeObjectURL(url);
+					showToast('Pacote de portabilidade (LGPD/GDPR JSON) baixado com sucesso!', 'success');
+				} catch (err) {
+					showToast(err.message || 'Erro ao gerar exportação de dados.', 'danger');
+				} finally {
+					downloadBtn.disabled = false;
+				}
+			});
+		}
+
+		// Right to Erasure / Deletion request
+		const erasureBtn = document.getElementById('btn-request-erasure');
+		if (erasureBtn) {
+			erasureBtn.addEventListener('click', async () => {
+				const reason = prompt('Opcional: informe o motivo ou detalhamento da sua solicitação de exclusão/anonimização de dados (LGPD Art. 18 / GDPR Art. 17):');
+				if (reason === null) return;
+				if (!confirm('Confirmar o envio formal de solicitação de exclusão/anonimização ao Encarregado de Dados (DPO)?')) {
+					return;
+				}
+				erasureBtn.disabled = true;
+				try {
+					const res = await fetchAPI('privacy/request-erasure', 'POST', { reason: reason });
+					showToast(res.message || 'Solicitação registrada e encaminhada ao DPO.', 'success');
+					openUserProfileModal();
+				} catch (err) {
+					showToast(err.message || 'Erro ao registrar solicitação.', 'danger');
+					erasureBtn.disabled = false;
+				}
+			});
+		}
 	}
 
 	// Initialize on DOM Ready

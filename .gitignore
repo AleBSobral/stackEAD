@@ -21,3 +21,4 @@ wp-config.php
 # Node / Vendor if added later
 node_modules/
 vendor/
+

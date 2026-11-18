@@ -452,6 +452,70 @@ class LoginTemplate {
 				.shake {
 					animation: shake 0.4s ease;
 				}
+
+				.privacy-trigger-btn {
+					margin-top: 12px;
+					background: transparent;
+					border: none;
+					color: var(--brand-secondary, #06b6d4);
+					font-family: inherit;
+					font-size: 12px;
+					font-weight: 600;
+					cursor: pointer;
+					text-decoration: underline;
+					text-underline-offset: 3px;
+					display: inline-flex;
+					align-items: center;
+					gap: 5px;
+				}
+				.privacy-trigger-btn:hover {
+					opacity: 0.85;
+				}
+
+				.login-privacy-modal {
+					position: fixed;
+					inset: 0;
+					background: rgba(4, 6, 14, 0.84);
+					backdrop-filter: blur(10px);
+					-webkit-backdrop-filter: blur(10px);
+					z-index: 9999;
+					display: none;
+					align-items: center;
+					justify-content: center;
+					padding: 20px;
+				}
+				.login-privacy-modal.open {
+					display: flex;
+				}
+				.login-privacy-box {
+					background: #0f172a;
+					border: 1px solid rgba(255, 255, 255, 0.14);
+					border-radius: 20px;
+					max-width: 600px;
+					width: 100%;
+					max-height: 86vh;
+					overflow-y: auto;
+					padding: 28px;
+					color: #e2e8f0;
+					box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75);
+				}
+				.login-privacy-box h2 {
+					font-family: 'Space Grotesk', sans-serif;
+					font-size: 18px;
+					color: #ffffff;
+					margin-bottom: 12px;
+				}
+				.login-privacy-box p,
+				.login-privacy-box li {
+					font-size: 13px;
+					line-height: 1.65;
+					color: #cbd5e1;
+					margin-bottom: 10px;
+				}
+				.login-privacy-box ul {
+					padding-left: 18px;
+					margin-bottom: 12px;
+				}
 			</style>
 		</head>
 		<body>
@@ -574,12 +638,36 @@ class LoginTemplate {
 
 						<div class="security-badge">
 							<i data-lucide="shield-check"></i>
-							<span><?php esc_html_e( 'Ambiente Seguro TLS · Acessibilidade W3C COGA', 'stackead-core' ); ?></span>
+							<span><?php esc_html_e( 'Ambiente Seguro TLS · Conformidade LGPD (BR) & GDPR (UE) · Acessibilidade W3C COGA', 'stackead-core' ); ?></span>
 						</div>
+
+						<button type="button" id="btn-open-login-privacy" class="privacy-trigger-btn">
+							<i data-lucide="file-lock-2" style="width: 13px; height: 13px;"></i>
+							<?php esc_html_e( 'Política de Privacidade & Direitos do Titular (LGPD / GDPR)', 'stackead-core' ); ?>
+						</button>
 					</div>
 
 				</div>
 			</main>
+
+			<!-- LGPD / GDPR Privacy Modal -->
+			<div id="login-privacy-modal" class="login-privacy-modal" role="dialog" aria-modal="true" aria-labelledby="login-privacy-title">
+				<div class="login-privacy-box">
+					<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+						<h2 id="login-privacy-title" style="margin: 0;"><?php esc_html_e( 'Proteção de Dados & Privacidade (LGPD · GDPR)', 'stackead-core' ); ?></h2>
+						<button type="button" id="btn-close-login-privacy" aria-label="Fechar" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); color: #fff; border-radius: 8px; width: 32px; height: 32px; cursor: pointer; font-size: 18px;">&times;</button>
+					</div>
+					<p><strong><?php esc_html_e( 'Controlador Bilateral:', 'stackead-core' ); ?></strong> <?php echo $inst_name; ?> — Residência Internacional (Campina Grande, Brasil · Enghien-les-Bains, França / União Europeia).</p>
+					<ul>
+						<li><strong>Bases Legais (LGPD Art. 7º · GDPR Art. 6º):</strong> Execução de contrato educacional, consentimento explícito para comunicações, e legítimo interesse restrito à segurança da plataforma e prevenção contra fraudes.</li>
+						<li><strong>Cookies Estritamente Necessários:</strong> Este ambiente de autenticação utiliza apenas cookies técnicos de sessão (WordPress Auth) e proteção CSRF (`wp_rest`), isentos de rastreamento publicitário.</li>
+						<li><strong>Transferência Internacional Brasil ↔ França (UE):</strong> Os dados acadêmicos estritamente necessários à cooperação bilateral são protegidos sob cláusulas e salvaguardas equivalentes (LGPD Art. 33 · GDPR Capítulo V, Arts. 44–49).</li>
+						<li><strong>Direitos do Titular (LGPD Art. 18 · GDPR Arts. 15–21):</strong> Dentro da plataforma (em <em>Meu Perfil & Privacidade</em>), você pode exportar seus dados em JSON (Portabilidade), ajustar consentimentos ou solicitar eliminação/anonimização ao DPO.</li>
+					</ul>
+					<p style="margin-bottom: 16px;"><strong>Encarregado pelo Tratamento de Dados (DPO):</strong> <a href="mailto:contact@artinnovaresidency.com" style="color: #38bdf8;">contact@artinnovaresidency.com</a><br>Autoridades supervisoras: ANPD (Brasil) e CNIL (França / UE).</p>
+					<button type="button" id="btn-ok-login-privacy" class="btn-submit" style="padding: 10px 16px; font-size: 13px;">Entendi</button>
+				</div>
+			</div>
 
 			<script>
 				document.addEventListener('DOMContentLoaded', function() {
@@ -756,6 +844,24 @@ class LoginTemplate {
 							forgotText.textContent      = 'Enviar Instruções';
 						}
 					});
+
+					// Privacy Modal (LGPD / GDPR)
+					const privacyModal = document.getElementById('login-privacy-modal');
+					const openPrivBtn  = document.getElementById('btn-open-login-privacy');
+					const closePrivBtn = document.getElementById('btn-close-login-privacy');
+					const okPrivBtn    = document.getElementById('btn-ok-login-privacy');
+					const closePrivModal = () => privacyModal && privacyModal.classList.remove('open');
+					if (openPrivBtn && privacyModal) {
+						openPrivBtn.addEventListener('click', () => privacyModal.classList.add('open'));
+						closePrivBtn?.addEventListener('click', closePrivModal);
+						okPrivBtn?.addEventListener('click', closePrivModal);
+						privacyModal.addEventListener('click', (ev) => {
+							if (ev.target === privacyModal) closePrivModal();
+						});
+						document.addEventListener('keydown', (ev) => {
+							if (ev.key === 'Escape' && privacyModal.classList.contains('open')) closePrivModal();
+						});
+					}
 				});
 			</script>
 		</body>

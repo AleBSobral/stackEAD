@@ -706,6 +706,54 @@ class ApiRouter {
 			)
 		);
 
+		register_rest_route(
+			self::NAMESPACE,
+			'/leads/(?P<id>\d+)',
+			array(
+				'methods'             => 'DELETE',
+				'callback'            => array( __CLASS__, 'delete_lead' ),
+				'permission_callback' => array( __CLASS__, 'check_coordinator_or_admin' ),
+			)
+		);
+
+		// 18b. LGPD (Brasil) & GDPR (EU) Data Subject Rights Endpoints
+		register_rest_route(
+			self::NAMESPACE,
+			'/privacy/my-data',
+			array(
+				'methods'             => 'GET',
+				'callback'            => array( __CLASS__, 'export_my_personal_data' ),
+				'permission_callback' => array( __CLASS__, 'check_logged_in' ),
+			)
+		);
+
+		register_rest_route(
+			self::NAMESPACE,
+			'/privacy/consent',
+			array(
+				array(
+					'methods'             => 'GET',
+					'callback'            => array( __CLASS__, 'get_my_privacy_consent' ),
+					'permission_callback' => array( __CLASS__, 'check_logged_in' ),
+				),
+				array(
+					'methods'             => 'POST',
+					'callback'            => array( __CLASS__, 'save_my_privacy_consent' ),
+					'permission_callback' => array( __CLASS__, 'check_logged_in' ),
+				),
+			)
+		);
+
+		register_rest_route(
+			self::NAMESPACE,
+			'/privacy/request-erasure',
+			array(
+				'methods'             => 'POST',
+				'callback'            => array( __CLASS__, 'request_account_erasure' ),
+				'permission_callback' => array( __CLASS__, 'check_logged_in' ),
+			)
+		);
+
 		// 19. Authentication & Password Recovery
 		register_rest_route(
 			self::NAMESPACE,
@@ -2436,17 +2484,34 @@ class ApiRouter {
 
 		global $wpdb;
 
-		$name      = trim( str_replace( array( "\r", "\n" ), ' ', sanitize_text_field( $request['name'] ?? '' ) ) );
-		$email     = sanitize_email( $request['email'] ?? '' );
-		$phone     = sanitize_text_field( $request['phone'] ?? '' );
-		$city      = sanitize_text_field( $request['city'] ?? '' );
-		$profile   = sanitize_text_field( $request['profile'] ?? '' );
-		$referral  = sanitize_text_field( $request['referral'] ?? '' );
-		$course_id = absint( $request['course_id'] ?? 0 );
-		$ip        = sanitize_text_field( $_SERVER['REMOTE_ADDR'] ?? '' );
+		$name            = trim( str_replace( array( "\r", "\n" ), ' ', sanitize_text_field( $request['name'] ?? '' ) ) );
+		$email           = sanitize_email( $request['email'] ?? '' );
+		$phone           = sanitize_text_field( $request['phone'] ?? '' );
+		$city            = sanitize_text_field( $request['city'] ?? '' );
+		$profile         = sanitize_text_field( $request['profile'] ?? '' );
+		$referral        = sanitize_text_field( $request['referral'] ?? '' );
+		$course_id       = absint( $request['course_id'] ?? 0 );
+		$lang            = strtolower( sanitize_text_field( $request['lang'] ?? 'pt' ) );
+		if ( ! in_array( $lang, array( 'pt', 'en', 'es', 'fr' ), true ) ) {
+			$lang = 'pt';
+		}
+		$consent_raw     = $request['consent'] ?? null;
+		$consent_given   = ( true === $consent_raw || 1 === $consent_raw || '1' === (string) $consent_raw || 'true' === strtolower( (string) $consent_raw ) || 'on' === strtolower( (string) $consent_raw ) );
+		$consent_version = sanitize_text_field( $request['consent_version'] ?? 'v2.0-LGPD-GDPR-2026' );
+		$ip              = sanitize_text_field( $_SERVER['REMOTE_ADDR'] ?? '' );
 
 		if ( empty( $name ) || empty( $email ) || ! is_email( $email ) ) {
 			return new \WP_REST_Response( array( 'error' => 'Nome e e-mail válido são obrigatórios.' ), 400 );
+		}
+
+		if ( ! $consent_given ) {
+			return new \WP_REST_Response(
+				array(
+					'error'   => 'É obrigatório autorizar a Política de Privacidade (LGPD/GDPR) para enviar sua solicitação.',
+					'message' => 'É obrigatório autorizar a Política de Privacidade (LGPD/GDPR) para enviar sua solicitação.',
+				),
+				400
+			);
 		}
 
 		$table = $wpdb->prefix . 'stackead_leads';
@@ -2455,19 +2520,22 @@ class ApiRouter {
 		$inserted = $wpdb->insert(
 			$table,
 			array(
-				'course_id'  => $course_id,
-				'name'       => $name,
-				'email'      => $email,
-				'phone'      => $phone,
-				'city'       => $city,
-				'profile'    => $profile,
-				'referral'   => $referral,
-				'status'     => 'new',
-				'ip_address' => $ip,
-				'created_at' => $now,
-				'updated_at' => $now,
+				'course_id'       => $course_id,
+				'name'            => $name,
+				'email'           => $email,
+				'phone'           => $phone,
+				'city'            => $city,
+				'profile'         => $profile,
+				'referral'        => $referral,
+				'status'          => 'new',
+				'consent_given'   => 1,
+				'consent_version' => $consent_version ?: 'v2.0-LGPD-GDPR-2026',
+				'lang'            => $lang,
+				'ip_address'      => $ip,
+				'created_at'      => $now,
+				'updated_at'      => $now,
 			),
-			array( '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' )
+			array( '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%s', '%s', '%s', '%s', '%s' )
 		);
 
 		if ( false === $inserted ) {
@@ -2486,6 +2554,8 @@ class ApiRouter {
 				   . "Cidade/País: " . $city . "\n"
 				   . "Perfil: " . $profile . "\n"
 				   . "Indicação: " . $referral . "\n"
+				   . "Idioma: " . strtoupper( $lang ) . "\n"
+				   . "Consentimento LGPD/GDPR: SIM (" . $consent_version . ")\n"
 				   . "ID da Inscrição: #" . $lead_id . "\n\n"
 				   . "Data/Hora: " . $now . "\n";
 
@@ -2499,9 +2569,10 @@ class ApiRouter {
 
 		return new \WP_REST_Response(
 			array(
-				'success' => true,
-				'lead_id' => $lead_id,
-				'message' => 'Manifestação registrada com sucesso.',
+				'success'         => true,
+				'lead_id'         => $lead_id,
+				'consent_version' => $consent_version,
+				'message'         => 'Manifestação registrada com sucesso.',
 			),
 			201
 		);
@@ -2531,9 +2602,10 @@ class ApiRouter {
 		$output = fopen( 'php://output', 'w' );
 		fputs( $output, "\xEF\xBB\xBF" );
 
-		fputcsv( $output, array( 'ID', 'Nome', 'Email', 'Telefone', 'Cidade', 'Perfil', 'Origem', 'Status', 'Data' ), ';' );
+		fputcsv( $output, array( 'ID', 'Nome', 'Email', 'Telefone', 'Cidade', 'Perfil', 'Origem', 'Idioma', 'Consentimento LGPD/GDPR', 'Versão Política', 'Status', 'Data' ), ';' );
 
 		foreach ( $leads as $lead ) {
+			$consent_label = ! empty( $lead['consent_given'] ) ? 'Sim' : 'Não';
 			fputcsv(
 				$output,
 				array(
@@ -2544,6 +2616,9 @@ class ApiRouter {
 					self::sanitize_csv_cell( $lead['city'] ),
 					self::sanitize_csv_cell( $lead['profile'] ),
 					self::sanitize_csv_cell( $lead['referral'] ),
+					self::sanitize_csv_cell( $lead['lang'] ?? 'pt' ),
+					self::sanitize_csv_cell( $consent_label ),
+					self::sanitize_csv_cell( $lead['consent_version'] ?? 'v2.0-LGPD-GDPR-2026' ),
 					self::sanitize_csv_cell( $lead['status'] ),
 					self::sanitize_csv_cell( $lead['created_at'] ),
 				),
@@ -2553,6 +2628,28 @@ class ApiRouter {
 
 		fclose( $output );
 		exit;
+	}
+
+	/**
+	 * DELETE /leads/{id} - Permanently erase a lead (LGPD Art. 18 VI / GDPR Art. 17 Right to Erasure).
+	 */
+	public static function delete_lead( \WP_REST_Request $request ): \WP_REST_Response {
+		global $wpdb;
+		$lead_id = (int) $request['id'];
+		$table   = $wpdb->prefix . 'stackead_leads';
+
+		$deleted = $wpdb->delete( $table, array( 'id' => $lead_id ), array( '%d' ) );
+		if ( false === $deleted || 0 === $deleted ) {
+			return new \WP_REST_Response( array( 'error' => 'Registro não encontrado ou já removido.' ), 404 );
+		}
+
+		return new \WP_REST_Response(
+			array(
+				'success' => true,
+				'message' => 'Lead excluído permanentemente em conformidade com LGPD/GDPR.',
+			),
+			200
+		);
 	}
 
 	/**
@@ -4398,6 +4495,233 @@ class ApiRouter {
 			array(
 				'success' => $success,
 				'message' => $success ? 'Emblema removido com sucesso.' : 'Não foi possível remover este emblema.',
+			),
+			200
+		);
+	}
+
+	/**
+	 * Helper: Mask IP address for LGPD/GDPR audit trails (IPv4 /24 or IPv6 /48 anonymization).
+	 */
+	private static function mask_ip( string $ip ): string {
+		if ( filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 ) ) {
+			$parts = explode( '.', $ip );
+			$parts[3] = '0';
+			return implode( '.', $parts );
+		}
+		if ( filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6 ) ) {
+			$parts = explode( ':', $ip );
+			return implode( ':', array_slice( $parts, 0, 3 ) ) . '::';
+		}
+		return 'masked';
+	}
+
+	/**
+	 * GET /privacy/consent - Get logged-in user's granular LGPD/GDPR consent settings.
+	 */
+	public static function get_my_privacy_consent(): \WP_REST_Response {
+		$user_id = get_current_user_id();
+		$saved   = get_user_meta( $user_id, '_stackead_privacy_consents', true );
+
+		$defaults = array(
+			'essential_academic'      => true,
+			'academic_communications' => true,
+			'learning_analytics'      => false,
+			'international_transfer'  => true,
+			'policy_version'          => 'v2.0-LGPD-GDPR-2026',
+			'updated_at'              => '',
+			'masked_ip'               => '',
+		);
+
+		$consents = is_array( $saved ) ? wp_parse_args( $saved, $defaults ) : $defaults;
+		$erasure  = get_user_meta( $user_id, '_stackead_erasure_request', true );
+
+		return new \WP_REST_Response(
+			array(
+				'consents'        => $consents,
+				'erasure_request' => is_array( $erasure ) ? $erasure : null,
+				'dpo_email'       => 'contact@artinnovaresidency.com',
+				'regulations'     => array( 'LGPD (Lei 13.709/2018 - Brasil)', 'GDPR / RGPD (UE 2016/679 - França/UE)' ),
+			),
+			200
+		);
+	}
+
+	/**
+	 * POST /privacy/consent - Update granular LGPD/GDPR consent preferences.
+	 */
+	public static function save_my_privacy_consent( \WP_REST_Request $request ): \WP_REST_Response {
+		$user_id = get_current_user_id();
+		$params  = $request->get_json_params() ?: $request->get_params();
+		$ip      = sanitize_text_field( $_SERVER['REMOTE_ADDR'] ?? '' );
+
+		$consents = array(
+			'essential_academic'      => true, // Contract execution / Legal obligation (LGPD Art. 7 V / GDPR Art. 6.1.b)
+			'academic_communications' => ! empty( $params['academic_communications'] ),
+			'learning_analytics'      => ! empty( $params['learning_analytics'] ),
+			'international_transfer'  => ! empty( $params['international_transfer'] ),
+			'policy_version'          => 'v2.0-LGPD-GDPR-2026',
+			'updated_at'              => current_time( 'mysql' ),
+			'masked_ip'               => self::mask_ip( $ip ),
+		);
+
+		update_user_meta( $user_id, '_stackead_privacy_consents', $consents );
+
+		return new \WP_REST_Response(
+			array(
+				'success'  => true,
+				'message'  => 'Preferências de privacidade (LGPD/GDPR) registradas com sucesso!',
+				'consents' => $consents,
+			),
+			200
+		);
+	}
+
+	/**
+	 * GET /privacy/my-data - Right of Access & Data Portability JSON export (LGPD Art. 18 II,V / GDPR Arts. 15, 20).
+	 */
+	public static function export_my_personal_data(): \WP_REST_Response {
+		global $wpdb;
+		$user_id = get_current_user_id();
+		$user    = get_userdata( $user_id );
+
+		if ( ! $user ) {
+			return new \WP_REST_Response( array( 'error' => 'Usuário não encontrado.' ), 404 );
+		}
+
+		$cohort_members_table = $wpdb->prefix . 'stackead_cohort_members';
+		$enrollments_table    = $wpdb->prefix . 'stackead_enrollments';
+		$progress_table       = $wpdb->prefix . 'stackead_progress';
+		$attendances_table    = $wpdb->prefix . 'stackead_attendances';
+		$submissions_table    = $wpdb->prefix . 'stackead_submissions';
+		$quiz_attempts_table  = $wpdb->prefix . 'stackead_quiz_attempts';
+		$points_table         = $wpdb->prefix . 'stackead_gamification_points';
+		$badges_table         = $wpdb->prefix . 'stackead_gamification_badges';
+		$orders_table         = $wpdb->prefix . 'stackead_orders';
+		$leads_table          = $wpdb->prefix . 'stackead_leads';
+
+		$safe_query = static function ( string $sql ) use ( $wpdb ) {
+			$res = $wpdb->get_results( $sql, ARRAY_A );
+			return is_array( $res ) ? $res : array();
+		};
+
+		$consents = get_user_meta( $user_id, '_stackead_privacy_consents', true );
+		$erasure  = get_user_meta( $user_id, '_stackead_erasure_request', true );
+
+		$export_package = array(
+			'schema'                 => 'ArtInnova-StackEAD-PrivacyExport-v2.0',
+			'legal_framework'        => array( 'LGPD (Lei 13.709/2018 - Art. 18 II & V)', 'GDPR (Regulation EU 2016/679 - Arts. 15 & 20)' ),
+			'exported_at'            => gmdate( 'c' ),
+			'data_controller'        => 'Residência Internacional ArtInnova (Brasil · França)',
+			'dpo_contact'            => 'contact@artinnovaresidency.com',
+			'account'                => array(
+				'id'           => (int) $user->ID,
+				'username'     => $user->user_login,
+				'display_name' => $user->display_name,
+				'first_name'   => $user->first_name,
+				'last_name'    => $user->last_name,
+				'email'        => $user->user_email,
+				'registered'   => $user->user_registered,
+				'roles'        => array_values( (array) $user->roles ),
+				'avatar_url'   => get_user_meta( $user_id, '_stackead_avatar_url', true ) ?: '',
+			),
+			'privacy_consents'       => is_array( $consents ) ? $consents : array( 'policy_version' => 'v2.0-LGPD-GDPR-2026', 'essential_academic' => true ),
+			'erasure_request_status' => is_array( $erasure ) ? $erasure : null,
+			'cohort_memberships'     => $safe_query( $wpdb->prepare( "SELECT cohort_id, role, status, created_at FROM {$cohort_members_table} WHERE user_id = %d", $user_id ) ),
+			'enrollments'            => $safe_query( $wpdb->prepare( "SELECT cohort_id, status, enrolled_at, completed_at, created_at FROM {$enrollments_table} WHERE user_id = %d", $user_id ) ),
+			'lesson_progress'        => $safe_query( $wpdb->prepare( "SELECT lesson_id, cohort_id, completion_percent, seconds_watched, completed_at, updated_at FROM {$progress_table} WHERE user_id = %d", $user_id ) ),
+			'attendances'            => $safe_query( $wpdb->prepare( "SELECT session_id, cohort_id, status, minutes_attended, created_at FROM {$attendances_table} WHERE user_id = %d", $user_id ) ),
+			'submissions'            => $safe_query( $wpdb->prepare( "SELECT id, assignment_id, cohort_id, status, score, feedback, created_at FROM {$submissions_table} WHERE user_id = %d", $user_id ) ),
+			'quiz_attempts'          => $safe_query( $wpdb->prepare( "SELECT id, quiz_id, cohort_id, score, passed, attempt_number, completed_at FROM {$quiz_attempts_table} WHERE user_id = %d", $user_id ) ),
+			'gamification'           => array(
+				'points_ledger' => $safe_query( $wpdb->prepare( "SELECT points, point_type, event_action, description, created_at FROM {$points_table} WHERE user_id = %d ORDER BY created_at DESC", $user_id ) ),
+				'badges'        => $safe_query( $wpdb->prepare( "SELECT badge_key, title, description, earned_at FROM {$badges_table} WHERE user_id = %d", $user_id ) ),
+			),
+			'orders'                 => $safe_query( $wpdb->prepare( "SELECT id, cohort_id, plan_key, amount, currency, status, payment_method, created_at FROM {$orders_table} WHERE user_id = %d", $user_id ) ),
+			'related_leads'          => $safe_query( $wpdb->prepare( "SELECT id, name, email, city, profile, consent_given, consent_version, lang, created_at FROM {$leads_table} WHERE email = %s", $user->user_email ) ),
+		);
+
+		return new \WP_REST_Response( $export_package, 200 );
+	}
+
+	/**
+	 * POST /privacy/request-erasure - Formal Right to Erasure / Revocation Request (LGPD Art. 18 VI / GDPR Art. 17).
+	 */
+	public static function request_account_erasure( \WP_REST_Request $request ): \WP_REST_Response {
+		$user_id = get_current_user_id();
+		$user    = get_userdata( $user_id );
+		if ( ! $user ) {
+			return new \WP_REST_Response( array( 'error' => 'Usuário não encontrado.' ), 404 );
+		}
+
+		$params = $request->get_json_params() ?: $request->get_params();
+		$reason = sanitize_textarea_field( $params['reason'] ?? '' );
+		$scope  = sanitize_text_field( $params['scope'] ?? 'full_erasure_or_anonymization' );
+		$ip     = sanitize_text_field( $_SERVER['REMOTE_ADDR'] ?? '' );
+
+		$protocol_id = 'PRIV-' . gmdate( 'Ymd' ) . '-' . strtoupper( substr( wp_generate_password( 6, false ), 0, 6 ) );
+		$record      = array(
+			'protocol_id'  => $protocol_id,
+			'user_id'      => (int) $user_id,
+			'user_email'   => $user->user_email,
+			'display_name' => $user->display_name,
+			'scope'        => $scope,
+			'reason'       => $reason ?: 'Solicitação direta pelo Painel do Titular (LGPD/GDPR).',
+			'status'       => 'pending_dpo_review',
+			'requested_at' => current_time( 'mysql' ),
+			'masked_ip'    => self::mask_ip( $ip ),
+		);
+
+		update_user_meta( $user_id, '_stackead_erasure_request', $record );
+
+		$all_requests = get_option( 'stackead_gdpr_erasure_requests', array() );
+		if ( ! is_array( $all_requests ) ) {
+			$all_requests = array();
+		}
+		$all_requests[ $protocol_id ] = $record;
+		update_option( 'stackead_gdpr_erasure_requests', $all_requests, false );
+
+		$dpo_email = 'contact@artinnovaresidency.com';
+		$headers   = array(
+			'Content-Type: text/plain; charset=UTF-8',
+			'From: Residência ArtInnova <contact@artinnovaresidency.com>',
+			'Reply-To: ' . $user->display_name . ' <' . $user->user_email . '>',
+		);
+
+		$dpo_subject = sprintf( '[LGPD/GDPR DPO] Solicitação de Exclusão/Revogação #%s (%s)', $protocol_id, $user->display_name );
+		$dpo_body    = "Nova solicitação formal de Direitos do Titular registrada na plataforma EAD:\n\n"
+					 . "Protocolo: {$protocol_id}\n"
+					 . "Titular: {$user->display_name} (ID #{$user_id})\n"
+					 . "E-mail: {$user->user_email}\n"
+					 . "Escopo: {$scope}\n"
+					 . "Justificativa: {$record['reason']}\n"
+					 . "Data/Hora: {$record['requested_at']}\n\n"
+					 . "Prazo legal de atendimento:\n"
+					 . "• LGPD (Brasil - Art. 19): até 15 dias.\n"
+					 . "• GDPR (União Europeia - Art. 12.3): até 1 mês (30 dias).\n";
+		@wp_mail( $dpo_email, $dpo_subject, $dpo_body, $headers );
+
+		$user_subject = sprintf( '[ArtInnova] Protocolo de Privacidade LGPD/GDPR #%s', $protocol_id );
+		$user_body    = "Olá, {$user->display_name},\n\n"
+					  . "Confirmamos o recebimento da sua solicitação de exercício de direitos de titularidade de dados pessoais (LGPD Lei nº 13.709/2018 / GDPR Regulamento UE 2016/679).\n\n"
+					  . "• Número de Protocolo: {$protocol_id}\n"
+					  . "• Data do Registro: {$record['requested_at']}\n"
+					  . "• Encarregado pelo Tratamento de Dados (DPO): contact@artinnovaresidency.com\n\n"
+					  . "Nossa equipe de proteção de dados analisará e processará sua solicitação dentro dos prazos legais (15 dias LGPD / 30 dias GDPR).\n\n"
+					  . "Atenciosamente,\n"
+					  . "Residência Internacional ArtInnova\n";
+		@wp_mail( $user->user_email, $user_subject, $user_body, array(
+			'Content-Type: text/plain; charset=UTF-8',
+			'From: Residência ArtInnova <contact@artinnovaresidency.com>',
+			'Reply-To: DPO ArtInnova <contact@artinnovaresidency.com>',
+		) );
+
+		return new \WP_REST_Response(
+			array(
+				'success'     => true,
+				'protocol_id' => $protocol_id,
+				'record'      => $record,
+				'message'     => "Solicitação registrada sob o protocolo {$protocol_id} e encaminhada ao Encarregado de Dados (DPO).",
 			),
 			200
 		);

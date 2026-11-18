@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Database {
 
-	public const DB_VERSION = '1.0.1';
+	public const DB_VERSION = '1.0.2';
 
 	/**
 	 * Run migrations on plugin activation or update.
@@ -203,6 +203,9 @@ class Database {
 			referral VARCHAR(150) NULL,
 			status VARCHAR(30) DEFAULT 'new' NOT NULL,
 			notes TEXT NULL,
+			consent_given TINYINT(1) DEFAULT 1 NOT NULL,
+			consent_version VARCHAR(40) DEFAULT 'v2.0-LGPD-GDPR-2026' NULL,
+			lang VARCHAR(10) DEFAULT 'pt' NULL,
 			ip_address VARCHAR(45) NULL,
 			created_at DATETIME NOT NULL,
 			updated_at DATETIME NOT NULL,

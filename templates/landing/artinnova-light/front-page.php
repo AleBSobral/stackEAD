@@ -567,8 +567,13 @@ $theme_uri = get_template_directory_uri();
 
             <div class="field field-checkbox">
               <input id="consent" name="consent" type="checkbox" required>
-              <label for="consent" data-i18n="form.label_consent">Autorizo o uso dos meus dados para contato sobre a Residência ArtInnova e concordo com os termos de garantia. *</label>
+              <label for="consent" data-i18n="form.label_consent">Autorizo o uso dos meus dados para contato e triagem da Residência ArtInnova, conforme a Política de Privacidade (LGPD Brasil &amp; GDPR União Europeia), incluindo o compartilhamento bilateral Brasil–França. *</label>
             </div>
+
+            <p class="form-privacy-note">
+              <span data-i18n="form.privacy_inline_prefix">Tratamento transparente conforme LGPD (Lei nº 13.709/2018) e GDPR (UE 2016/679). DPO: contact@artinnovaresidency.com ·</span>
+              <button type="button" class="link-inline-privacy" data-open-privacy-modal="true" data-i18n="form.privacy_inline_link">Ler Política de Privacidade e Direitos</button>
+            </p>
 
             <button class="btn btn-primary" id="btn-submit-lead" type="submit" style="width: 100%;" data-i18n="form.btn_submit">
               Manifestar interesse ↗

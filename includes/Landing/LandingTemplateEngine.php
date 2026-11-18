@@ -630,7 +630,7 @@ class LandingTemplateEngine {
 
 								<div class="field field-checkbox">
 									<input id="lead_consent" name="consent" type="checkbox" required>
-									<label for="lead_consent">Autorizo o uso dos meus dados para contato sobre a formação e concordo com a política de privacidade (LGPD). *</label>
+									<label for="lead_consent">Autorizo o uso dos meus dados para contato sobre a formação e concordo com a Política de Privacidade e Direitos do Titular (LGPD Brasil &amp; GDPR União Europeia). *</label>
 								</div>
 
 								<button class="btn btn-primary" id="btn-submit-lead" type="submit" style="width: 100%;">
@@ -714,7 +714,7 @@ class LandingTemplateEngine {
 						</div>
 					</div>
 					<div style="margin-top: 24px; text-align: center; font-size: 12px; color: #64748b;">
-						&copy; <?php echo esc_html( date( 'Y' ) ); ?> <?php echo esc_html( $settings['institution_name'] ); ?>. Todos os direitos reservados. Plataforma tecnológica powered by stackEAD Core.
+						&copy; <?php echo esc_html( date( 'Y' ) ); ?> <?php echo esc_html( $settings['institution_name'] ); ?>. Todos os direitos reservados. Conformidade LGPD (Brasil) &amp; GDPR (União Europeia) · DPO: <a href="mailto:<?php echo esc_attr( $settings['support_email'] ?: 'contact@artinnovaresidency.com' ); ?>" style="color: #94a3b8;"><?php echo esc_html( $settings['support_email'] ?: 'contact@artinnovaresidency.com' ); ?></a>.
 					</div>
 				</div>
 			</footer>
@@ -805,7 +805,10 @@ class LandingTemplateEngine {
 										phone: phone,
 										city: city,
 										profile: profile,
-										course_id: window.StackEAD_Landing.courseId
+										course_id: window.StackEAD_Landing.courseId,
+										consent: consent,
+										consent_version: 'v2.0-LGPD-GDPR-2026',
+										lang: 'pt'
 									})
 								});
 

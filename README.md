@@ -25,6 +25,11 @@
   - Validação criptográfica (`hash_equals`) para webhooks financeiros.
   - Proteção contra *Open Redirect*, *CSV Formula Injection*, *CRLF Header Injection*, *Path Disclosure* e *SSRF*.
   - Isolamento de cache dinâmico (`X-LiteSpeed-Cache-Control: no-cache`) nas rotas autenticadas.
+- **Conformidade Internacional LGPD (Brasil) & GDPR / RGPD (União Europeia):**
+  - Banner de cookies com botões de igual destaque (*Privacy by Default* conforme diretrizes ANPD e CNIL).
+  - Rastreabilidade auditável de consentimento (`consent_given`, `consent_version`, `lang`) em `wp_stackead_leads` e metadados de usuários.
+  - Central de Privacidade no perfil do usuário (`/plataforma`) com gestão granular de consentimentos (`GET/POST /privacy/consent`), portabilidade integral em JSON (`GET /privacy/my-data`) e protocolo de solicitação de exclusão ao DPO (`POST /privacy/request-erasure`).
+  - Direito ao esquecimento administrativo para remoção permanente de leads (`DELETE /leads/{id}`).
 
 ---
 
@@ -65,3 +70,4 @@ stackead-core/
    wp rewrite flush --hard
    ```
 4. Acesse a plataforma em `/plataforma`.
+

@@ -205,7 +205,9 @@
       "Autre profil interdisciplinaire"
     ],
     "label_referral": "Qui vous a recommandé ? (Ville créative, Point Focal ou partenaire)",
-    "label_consent": "J'autorise l'utilisation de mes données pour être contacté(e) au sujet de la Résidence ArtInnova. *",
+    "label_consent": "J'autorise le traitement de mes données pour être contacté(e) dans le cadre de la Résidence ArtInnova, conformément à la Politique de Confidentialité (RGPD / GDPR Union Européenne & LGPD Brésil), y compris le transfert bilatéral Brésil–France. *",
+    "privacy_inline_prefix": "Traitement transparent conforme au RGPD (UE 2016/679) et à la LGPD (Brésil). DPO : contact@artinnovaresidency.com ·",
+    "privacy_inline_link": "Lire la Politique de Confidentialité et vos Droits",
     "btn_submit": "Exprimer mon intérêt ↗",
     "status_success": "Manifestation d'intérêt envoyée avec succès ! Nous vous avons envoyé un e-mail de confirmation et notre équipe vous contactera bientôt.",
     "mail_subject": "Intérêt pour la Résidence ArtInnova — ",
@@ -243,9 +245,43 @@
     ]
   },
   "footer": {
+    "tagline": "Résidence Internationale ArtInnova · Arts Médiatiques et Innovation Territoriale",
+    "cities": "Campina Grande (Brésil) · Enghien-les-Bains (France)",
+    "contact_label": "Contact officiel & DPO (Données personnelles) :",
     "brand_line": "Campina Grande · Brésil / Enghien-les-Bains · France",
     "contact": "Contact officiel : contact@artinnovaresidency.com",
     "institutional": "Residência Internacional ArtInnova",
-    "version": "ArtInnova Light Theme · 2026/2027"
+    "version": "ArtInnova Light Theme · 2026/2027",
+    "privacy_link": "Politique de Confidentialité (RGPD & LGPD)",
+    "rights_link": "Droits des Personnes & DPO",
+    "cookies_link": "Gestion des Cookies",
+    "copyright_text": "© 2026–2027 Résidence Internationale ArtInnova. Tous droits réservés.",
+    "bilateral_tag": "Coopération Bilatérale Brésil · France · Conforme RGPD & LGPD"
+  },
+  "privacy": {
+    "banner_title": "Confidentialité, Cookies & Protection des Données (RGPD · LGPD)",
+    "banner_text": "Nous utilisons des cookies strictement nécessaires pour la langue et la sécurité. Les cookies analytiques ne sont activés qu'avec votre consentement exprès, conformément au RGPD / CNIL (UE) et à la LGPD (Brésil).",
+    "btn_accept_all": "Tout accepter",
+    "btn_reject_non_essential": "Essentiels uniquement",
+    "btn_customize": "Personnaliser & Politique",
+    "modal_title": "Politique de Confidentialité, Cookies & Droits (RGPD & LGPD)",
+    "modal_subtitle": "Transparence internationale appliquée à la coopération bilatérale Campina Grande (Brésil) ↔ Enghien-les-Bains (France / UE).",
+    "section_controller_title": "1. Responsable Conjoint & Délégué à la Protection des Données (DPO)",
+    "section_controller_body": "Vos données sont traitées conjointement par les équipes de coordination de la Résidence Internationale ArtInnova en France (UE) et au Brésil. Contact officiel du DPO : contact@artinnovaresidency.com.",
+    "section_legal_title": "2. Finalités & Bases Légales (RGPD Art. 6 · LGPD Art. 7)",
+    "section_legal_body": "Nous collectons nom, e-mail, ville/pays, profil et recommandation sur la base de votre consentement explicite pour le suivi de candidature, ainsi que pour l'exécution du contrat pédagogique lors de l'inscription sur la plateforme.",
+    "section_transfer_title": "3. Transfert International France (UE) ↔ Brésil",
+    "section_transfer_body": "Dans le cadre de cette résidence bilatérale, les données strictement académiques peuvent être consultées par les équipes pédagogiques en France et au Brésil sous chiffrement TLS et garanties appropriées (RGPD Chapitre V Art. 44–49 · LGPD Art. 33).",
+    "section_rights_title": "4. Durée de Conservation & Vos Droits (CNIL France · ANPD Brésil)",
+    "section_rights_body": "Les manifestations d'intérêt sont conservées au maximum 24 mois ou jusqu'au retrait du consentement. Vous disposez des droits d'accès, de rectification, de portabilité (JSON), d'opposition et d'effacement via contact@artinnovaresidency.com ou dans votre espace 'Mon Profil & Confidentialité'. Autorités de contrôle : CNIL (France/UE) et ANPD (Brésil).",
+    "cookies_prefs_title": "Préférences de Cookies dans ce Navigateur",
+    "cookie_essential_label": "Cookies Essentiels (Langue et Sécurité de Session)",
+    "cookie_essential_desc": "Toujours actifs pour mémoriser votre langue et sécuriser les formulaires.",
+    "cookie_functional_label": "Préférences Fonctionnelles & Accessibilité",
+    "cookie_functional_desc": "Mémorise vos préférences d'affichage et de réduction des animations.",
+    "cookie_analytics_label": "Mesure d'Audience Pédagogique Anonymisée",
+    "cookie_analytics_desc": "Désactivée par défaut (Privacy by Default - RGPD). Sans traceur publicitaire.",
+    "btn_save_prefs": "Enregistrer mes choix",
+    "btn_close_modal": "Fermer"
   }
 }

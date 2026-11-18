@@ -59,6 +59,7 @@
     initScrollInteractions();
     initFaqAccordion();
     initLeadForm();
+    initPrivacyCompliance();
     initMobileNav();
     initPixelParticles();
     initCardTilts();
@@ -164,6 +165,7 @@
   }
 
   function renderTranslations(data) {
+    window.i18nData = data;
     document.documentElement.lang = data.lang || currentLang;
 
     if (data.meta && data.meta.title) {
@@ -591,6 +593,8 @@
       formData.append('referral', referral);
       formData.append('country', referral);
       formData.append('lang', lang);
+      formData.append('consent', consent ? '1' : '0');
+      formData.append('consent_version', 'v2.0-LGPD-GDPR-2026');
 
       try {
         const res = await fetch(ajaxUrl, {
@@ -627,6 +631,124 @@
     formStatus.textContent = msg;
     formStatus.className = 'form-status';
     if (type) formStatus.classList.add(type);
+  }
+
+  /* ============================================================
+     7b. LGPD (Brasil) & GDPR / CNIL (EU) Cookie & Privacy Engine
+     ============================================================ */
+  function initPrivacyCompliance() {
+    const STORAGE_KEY = 'artinnova_cookie_consent_v2';
+    const banner = document.getElementById('cookie-consent-banner');
+    const modal = document.getElementById('privacy-modal');
+    const prefFunctional = document.getElementById('pref-cookie-functional');
+    const prefAnalytics = document.getElementById('pref-cookie-analytics');
+
+    const getStoredConsent = () => {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : null;
+      } catch (e) {
+        return null;
+      }
+    };
+
+    const saveConsent = (functional, analytics, source) => {
+      const record = {
+        essential: true,
+        functional: !!functional,
+        analytics: !!analytics,
+        version: 'v2.0-LGPD-GDPR-2026',
+        source: source || 'banner',
+        timestamp: new Date().toISOString()
+      };
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(record));
+      } catch (e) {
+        // Ignore storage errors in restricted browsing modes
+      }
+      window.ArtInnovaPrivacyConsent = record;
+      document.dispatchEvent(new CustomEvent('artinnova:privacy-consent-updated', { detail: record }));
+      if (banner) banner.setAttribute('hidden', 'hidden');
+    };
+
+    const syncToggles = () => {
+      const current = getStoredConsent();
+      if (prefFunctional) {
+        prefFunctional.checked = current ? !!current.functional : true;
+      }
+      if (prefAnalytics) {
+        // GDPR Privacy by Default: analytics stays false until explicit opt-in
+        prefAnalytics.checked = current ? !!current.analytics : false;
+      }
+    };
+
+    const openPrivacyModal = (scrollToCookies = false) => {
+      if (!modal) return;
+      syncToggles();
+      modal.removeAttribute('hidden');
+      if (scrollToCookies) {
+        const cookieBox = document.getElementById('privacy-cookies-section');
+        if (cookieBox) {
+          setTimeout(() => cookieBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80);
+        }
+      }
+    };
+
+    const closePrivacyModal = () => {
+      if (modal) modal.setAttribute('hidden', 'hidden');
+    };
+
+    const existing = getStoredConsent();
+    if (!existing && banner) {
+      banner.removeAttribute('hidden');
+      window.ArtInnovaPrivacyConsent = {
+        essential: true,
+        functional: true,
+        analytics: false,
+        version: 'v2.0-LGPD-GDPR-2026',
+        source: 'default_privacy_by_default'
+      };
+    } else if (existing) {
+      window.ArtInnovaPrivacyConsent = existing;
+    }
+
+    document.getElementById('btn-cookie-accept')?.addEventListener('click', () => {
+      saveConsent(true, true, 'banner_accept_all');
+    });
+
+    document.getElementById('btn-cookie-reject')?.addEventListener('click', () => {
+      saveConsent(false, false, 'banner_essential_only');
+    });
+
+    document.getElementById('btn-cookie-customize')?.addEventListener('click', () => {
+      openPrivacyModal(true);
+    });
+
+    document.getElementById('btn-save-cookie-prefs')?.addEventListener('click', () => {
+      saveConsent(
+        prefFunctional ? prefFunctional.checked : true,
+        prefAnalytics ? prefAnalytics.checked : false,
+        'privacy_modal_custom'
+      );
+      closePrivacyModal();
+    });
+
+    document.querySelectorAll('[data-open-privacy-modal]').forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        openPrivacyModal(trigger.getAttribute('data-open-privacy-modal') === 'cookies');
+      });
+    });
+
+    document.querySelectorAll('[data-close-privacy-modal]').forEach(closer => {
+      closer.addEventListener('click', closePrivacyModal);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal && !modal.hasAttribute('hidden')) {
+        closePrivacyModal();
+      }
+    });
   }
 
   /* ============================================================

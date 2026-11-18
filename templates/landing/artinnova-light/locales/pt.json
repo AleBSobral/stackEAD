@@ -205,7 +205,9 @@
       "Outro perfil interdisciplinar"
     ],
     "label_referral": "Quem indicou? (Cidade criativa, Ponto Focal ou parceiro)",
-    "label_consent": "Autorizo o uso dos meus dados para contato sobre a Residência ArtInnova. *",
+    "label_consent": "Autorizo o uso dos meus dados para contato e triagem da Residência ArtInnova, conforme a Política de Privacidade (LGPD Brasil & GDPR União Europeia), incluindo o compartilhamento bilateral Brasil–França. *",
+    "privacy_inline_prefix": "Tratamento transparente conforme LGPD (Lei nº 13.709/2018) e GDPR (UE 2016/679). DPO: contact@artinnovaresidency.com ·",
+    "privacy_inline_link": "Ler Política de Privacidade e Direitos",
     "btn_submit": "Manifestar interesse ↗",
     "status_success": "Manifestação enviada com sucesso! Enviamos um e-mail de confirmação para você e nossa equipe entrará em contato em breve.",
     "mail_subject": "Interesse na Residência ArtInnova — ",
@@ -243,9 +245,43 @@
     ]
   },
   "footer": {
+    "tagline": "Residência Internacional ArtInnova · Artes Midiáticas e Inovação Territorial",
+    "cities": "Campina Grande (Brasil) · Enghien-les-Bains (França)",
+    "contact_label": "Contato oficial & DPO (Privacidade):",
     "brand_line": "Campina Grande · Brasil / Enghien-les-Bains · França",
     "contact": "Contato oficial: contact@artinnovaresidency.com",
     "institutional": "Residência Internacional ArtInnova",
-    "version": "ArtInnova Light Theme · 2026/2027"
+    "version": "ArtInnova Light Theme · 2026/2027",
+    "privacy_link": "Política de Privacidade (LGPD & GDPR)",
+    "rights_link": "Direitos do Titular & DPO",
+    "cookies_link": "Preferências de Cookies",
+    "copyright_text": "© 2026–2027 Residência Internacional ArtInnova. Todos os direitos reservados.",
+    "bilateral_tag": "Cooperação Bilateral Brasil · França · Conformidade LGPD & GDPR"
+  },
+  "privacy": {
+    "banner_title": "Privacidade, Cookies & Proteção de Dados (LGPD · GDPR)",
+    "banner_text": "Utilizamos cookies estritamente necessários para idioma e segurança. Cookies analíticos só são ativados se você autorizar expressamente, conforme a LGPD (Brasil) e o GDPR / CNIL (União Europeia).",
+    "btn_accept_all": "Aceitar Todos",
+    "btn_reject_non_essential": "Apenas Essenciais",
+    "btn_customize": "Personalizar & Política",
+    "modal_title": "Política de Privacidade, Cookies & Direitos do Titular (LGPD & GDPR)",
+    "modal_subtitle": "Transparência internacional aplicada à cooperação bilateral Campina Grande (Brasil) ↔ Enghien-les-Bains (França / UE).",
+    "section_controller_title": "1. Controlador Bilateral & Encarregado (DPO)",
+    "section_controller_body": "Seus dados são tratados em conjunto pela coordenação da Residência Internacional ArtInnova no Brasil e na França/União Europeia. Canal oficial do Encarregado pelo Tratamento de Dados (DPO): contact@artinnovaresidency.com.",
+    "section_legal_title": "2. Finalidade & Bases Legais (LGPD Art. 7º · GDPR Art. 6º)",
+    "section_legal_body": "Coletamos nome, e-mail, cidade/país, perfil e indicação mediante seu consentimento explícito para contato institucional, processo seletivo e acolhimento acadêmico, bem como por execução contratual quando matriculado na plataforma EAD.",
+    "section_transfer_title": "3. Transferência Internacional Brasil ↔ França (UE)",
+    "section_transfer_body": "Por se tratar de uma residência bilateral, seus dados acadêmicos podem ser acessados pela equipe curatorial e docente no Brasil e na França sob cláusulas contratuais padrão, criptografia TLS e salvaguardas equivalentes (LGPD Art. 33 · GDPR Capítulo V, Arts. 44–49).",
+    "section_rights_title": "4. Retenção & Seus Direitos (ANPD Brasil · CNIL França)",
+    "section_rights_body": "Os dados de manifestação de interesse são mantidos por até 24 meses ou até revogação do consentimento. Você possui direito garantido de acesso, retificação, portabilidade (JSON), oposição e eliminação completa escrevendo para contact@artinnovaresidency.com ou diretamente em 'Meu Perfil & Privacidade' dentro da plataforma EAD. Autoridades competentes: ANPD (Brasil) e CNIL (França).",
+    "cookies_prefs_title": "Preferências de Cookies neste Navegador",
+    "cookie_essential_label": "Cookies Essenciais (Idioma e Segurança da Sessão)",
+    "cookie_essential_desc": "Sempre ativos para garantir funcionamento, idioma escolhido e proteção contra envios automatizados.",
+    "cookie_functional_label": "Preferências Funcionais & Acessibilidade",
+    "cookie_functional_desc": "Memoriza suas preferências visuais e estado de animações reduzidas.",
+    "cookie_analytics_label": "Métricas Pedagógicas & Analíticos Anonimizados",
+    "cookie_analytics_desc": "Desativado por padrão (Privacy by Default - GDPR). Ajuda a melhorar o portal sem rastreamento publicitário.",
+    "btn_save_prefs": "Salvar Preferências",
+    "btn_close_modal": "Fechar"
   }
 }
