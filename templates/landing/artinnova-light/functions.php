@@ -39,7 +39,7 @@ add_action('after_setup_theme', 'artinnova_light_setup');
 
 // 2. Enqueue Styles & Scripts
 function artinnova_light_enqueue_assets() {
-    $theme_version = '2.0.3';
+    $theme_version = '2.0.4';
     $theme_uri = get_template_directory_uri();
 
     // Google Fonts

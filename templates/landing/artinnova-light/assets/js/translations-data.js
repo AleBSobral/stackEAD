@@ -29,7 +29,8 @@ window.ARTINNOVA_TRANSLATIONS = {
       "award_callout": "Super Prêmio: Imersão Internacional em Paris/Enghien-les-Bains",
       "trust_guarantee": "Garantia incondicional de 7 dias",
       "trust_slots": "Turma exclusiva de 60 participantes",
-      "meta_price_label": "Condição de Inscrição"
+      "meta_price_label": "Condição de Inscrição",
+      "meta_tag": "Turma Piloto"
     },
     "metrics": {
       "participants_val": "60",
@@ -39,7 +40,17 @@ window.ARTINNOVA_TRANSLATIONS = {
       "cities_val": "02",
       "cities_label": "Cidades criativas UNESCO conectadas",
       "awards_val": "04",
-      "awards_label": "Imersões internacionais com tudo pago"
+      "awards_label": "Imersões internacionais com tudo pago",
+      "slots": "vagas internacionais",
+      "slots_sub": "50 Brasil · 10 França",
+      "br_slots": "participantes no Brasil",
+      "br_slots_sub": "40 pagas · 10 sociais",
+      "fr_slots": "participantes na França",
+      "fr_slots_sub": "100% bolsas sociais",
+      "travel_awards": "super prêmios de viagem",
+      "travel_awards_sub": "2 BR para França · 2 FR para Brasil",
+      "mission": "missão contínua",
+      "mission_sub": "transformar ideias em pontes"
     },
     "experience": {
       "eyebrow": "01 — A experiência",
@@ -62,7 +73,10 @@ window.ARTINNOVA_TRANSLATIONS = {
           "title": "Conectar",
           "desc": "Conhecer outros participantes, mestres e redes criativas, ampliando oportunidades de colaboração bilateral Brasil–França."
         }
-      ]
+      ],
+      "quote": "\"Não basta dominar ferramentas digitais: é preciso construir projetos com propósito, sensibilidade artística e capacidade de dialogar com redes internacionais.\"",
+      "quote_author": "Diretriz Curatorial · Residência ArtInnova",
+      "media_caption": "Atelier de Co-criação Internacional · Metodologias Interdisciplinares"
     },
     "stripe": "CRIAR. EXPERIMENTAR. COMPARTILHAR. CONECTAR.",
     "audience": {
@@ -84,7 +98,9 @@ window.ARTINNOVA_TRANSLATIONS = {
       "title_accent": "sem fronteiras.",
       "intro": "A turma piloto nasce da cooperação entre Campina Grande, no Brasil, e Enghien-les-Bains, na França, dialogando com conexões desenvolvidas em cidades e territórios criativos globais.",
       "p1": "A cooperação internacional e a mobilização da Rede Brasileira de Cidades Criativas da UNESCO (RBCC) ampliam as possibilidades de encontro entre repertórios, desafios e iniciativas. A participação de instituições e mestres específicos será divulgada após confirmação.",
-      "disclaimer": "A referência à RBCC e às cidades criativas descreve conexões de cooperação; não implica certificação ou chancela direta da UNESCO para a Residência."
+      "disclaimer": "A referência à RBCC e às cidades criativas descreve conexões de cooperação; não implica certificação ou chancela direta da UNESCO para a Residência.",
+      "media_tag": "Territórios Conectados",
+      "media_caption": "Cooperação Internacional · Campina Grande ✕ Enghien-les-Bains"
     },
     "journey": {
       "eyebrow": "04 — Programa formativo · calendário macro provisório",
@@ -131,6 +147,33 @@ window.ARTINNOVA_TRANSLATIONS = {
           "title": "Imersão Internacional",
           "desc": "Experiência presencial enriquecedora para os quatro participantes premiados."
         }
+      ],
+      "steps": [
+        {
+          "step": "ETAPA 01 · DEZEMBRO 2026",
+          "title": "Acolhimento & Preparação",
+          "desc": "Apresentação da turma, alinhamento metodológico, plataformas, primeiros contatos e ambientação na dinâmica internacional."
+        },
+        {
+          "step": "ETAPA 02 · JANEIRO 2027",
+          "title": "Fundamentos & Repertório",
+          "desc": "Imersão em linguagens de Artes Midiáticas, referências contemporâneas, ética, inteligência artificial e definição de desafios."
+        },
+        {
+          "step": "ETAPA 03 · FEVEREIRO 2027",
+          "title": "Ideação & Prototipagem",
+          "desc": "Desenvolvimento de conceitos em equipes interdisciplinares, testes rápidos de viabilidade e primeiras sessões de mentoria."
+        },
+        {
+          "step": "ETAPA 04 · MARÇO 2027",
+          "title": "Desenvolvimento & Maturação",
+          "desc": "Refinamento técnico das propostas, workshops com convidados internacionais e preparação para a banca avaliadora."
+        },
+        {
+          "step": "ETAPA 05 · ABRIL 2027",
+          "title": "HackArtThon & Apresentação",
+          "desc": "Maratona de encerramento, mostra coletiva de projetos e anúncio dos premiados que viajam à França e ao Brasil."
+        }
       ]
     },
     "award": {
@@ -167,7 +210,9 @@ window.ARTINNOVA_TRANSLATIONS = {
           "desc": "Mostra e divulgação do seu projeto para redes culturais internacionais, festivais de artes digitais e potenciais investidores."
         }
       ],
-      "footer_title": "Critérios Claros e Transparentes:"
+      "footer_title": "Critérios Claros e Transparentes:",
+      "br_flag": "🇧🇷 Brasil",
+      "fr_flag": "🇫🇷 França"
     },
     "pricing": {
       "eyebrow": "06 — Investimento & Segurança",
@@ -185,7 +230,19 @@ window.ARTINNOVA_TRANSLATIONS = {
       "g1_title": "Experimente a Primeira Semana sem Risco",
       "g1_desc": "Após a confirmação da sua matrícula, você tem 7 dias corridos para participar dos primeiros encontros e conhecer nossa metodologia. Se por qualquer motivo pessoal, profissional ou de agenda decidir não continuar, basta nos enviar um e-mail: estornamos 100% do valor pago, sem burocracia nem questionamentos.",
       "g2_title": "Compromisso com o Seu Ganho Prático",
-      "g2_desc": "Se você comparecer a pelo menos 80% das atividades propostas e, ao término dos 4 meses de formação, avaliar de boa-fé que os conteúdos e ateliês não agregaram valor para seu percurso artístico e profissional, analisaremos seu caso para a devolução integral da taxa de matrícula."
+      "g2_desc": "Se você comparecer a pelo menos 80% das atividades propostas e, ao término dos 4 meses de formação, avaliar de boa-fé que os conteúdos e ateliês não agregaram valor para seu percurso artístico e profissional, analisaremos seu caso para a devolução integral da taxa de matrícula.",
+      "slots_badge": "50 Vagas",
+      "benefits": [
+        "4 meses de ateliês práticos e formação aplicada",
+        "Elegibilidade integral às bolsas de imersão presencial na França",
+        "Acesso direto a mestres, curadores e comunidade internacional",
+        "Certificação internacional da Residência ArtInnova"
+      ],
+      "guarantee_kicker": "COMPROMISSO FORMAL ARTINNOVA",
+      "g1_badge": "Garantia 01 · 7 Dias Incondicional",
+      "g1_status": "100% Reembolso",
+      "g2_badge": "Garantia 02 · Evolução do Conhecimento",
+      "g2_status": "Devolução Integral"
     },
     "form": {
       "eyebrow": "07 — Próximo passo",
@@ -212,7 +269,16 @@ window.ARTINNOVA_TRANSLATIONS = {
       "btn_submit": "Manifestar interesse ↗",
       "status_success": "Manifestação enviada com sucesso! Enviamos um e-mail de confirmação para você e nossa equipe entrará em contato em breve.",
       "mail_subject": "Interesse na Residência ArtInnova — ",
-      "mail_intro": "Manifestação de interesse — Residência Internacional ArtInnova"
+      "mail_intro": "Manifestação de interesse — Residência Internacional ArtInnova",
+      "perks": [
+        "Acesso prévio ao regulamento e cronograma de aulas",
+        "Prioridade na fila de matrículas antes da abertura pública",
+        "Proteção integral com a Dupla Garantia de 7 dias e Transformação"
+      ],
+      "placeholder_name": "Seu nome",
+      "placeholder_email": "seuemail@exemplo.com",
+      "placeholder_city": "Ex: Campina Grande, PB ou Paris, França",
+      "placeholder_referral": "Opcional"
     },
     "faq": {
       "eyebrow": "Dúvidas frequentes",
@@ -220,28 +286,24 @@ window.ARTINNOVA_TRANSLATIONS = {
       "title_accent": "ponte.",
       "items": [
         {
-          "q": "Quando começa a Residência?",
-          "a": "Inscrições e acolhimento em dezembro de 2026; formação prevista de janeiro a abril de 2027; HackArtThon em abril; imersão dos premiados em junho de 2027. Datas específicas serão confirmadas na abertura oficial."
+          "q": "Preciso ser artista profissional para participar?",
+          "a": "Não. A residência é voltada para perfis híbridos: criadores, designers, desenvolvedores, pesquisadores e gestores. O requisito essencial é ter maturidade profissional ou acadêmica e interesse concreto em criar e colaborar."
         },
         {
-          "q": "Qual é o valor da matrícula e como funciona o pagamento?",
-          "a": "Para participantes brasileiros, R$ 3.000, parcelável em até 10 parcelas de R$ 300 no cartão de crédito. Para participantes internacionais, valores correspondentes em USD e EUR com conversão oficial."
+          "q": "Como funciona o Super Prêmio de Viagem Internacional?",
+          "a": "Quatro residentes selecionados (dois do Brasil e dois da França) terão passagens aéreas e hospedagem custeadas para uma imersão de 10 dias no Centre des Arts em Enghien-les-Bains (região de Paris) ou Campina Grande, com ateliês, mentorias e mostra de obras."
         },
         {
-          "q": "Preciso ser artista profissional ou programador?",
-          "a": "Não necessariamente. A proposta é interdisciplinar e voltada a pessoas com repertórios diversos: design, educação, gestão, tecnologia, artes visuais ou curiosidade em inovação e colaboração."
+          "q": "Como funciona a Dupla Garantia de 7 dias e de Transformação?",
+          "a": "Você tem 7 dias após o início para desistir e receber 100% do seu dinheiro de volta sem qualquer questionamento. Além disso, se você participar ativamente de toda a residência e comprovar que a formação não agregou benefícios para você, poderá solicitar o reembolso integral ao final do programa."
         },
         {
-          "q": "Quem serão os mestres e qual será o formato das aulas?",
-          "a": "A equipe divulgará os nomes confirmados do Brasil e da França, a carga horária detalhada e o formato híbrido (ateliers assíncronos e encontros síncronos internacionais) antes do início das matrículas."
+          "q": "Qual é o formato das atividades (online ou presencial)?",
+          "a": "A formação é híbrida: encontros síncronos online semanais, acompanhamento contínuo em ateliê virtual e momentos de imersão prática (como o HackArtThon e a viagem de intercâmbio dos premiados)."
         },
         {
-          "q": "Como funciona o prêmio de imersão internacional?",
-          "a": "Serão premiados quatro participantes (dois brasileiros e dois franceses). No Brasil, a matrícula paga não confere nenhuma vantagem em relação às vagas sociais. A escolha ocorrerá no HackArtThon de abril com base em critérios públicos de mérito e colaboração."
-        },
-        {
-          "q": "A Residência oferece certificação?",
-          "a": "Sim. As condições de certificação internacional e a chancela das instituições responsáveis serão detalhadas antes do início do programa."
+          "q": "Como funcionam as bolsas / matrículas sociais?",
+          "a": "O projeto prevê 10 vagas sociais integrais para o Brasil e 10 vagas sociais para a França. Os critérios socioeconômicos e de representatividade territorial serão detalhados na abertura do edital de seleção social."
         }
       ]
     },
@@ -316,7 +378,8 @@ window.ARTINNOVA_TRANSLATIONS = {
       "award_callout": "Super Award: International Immersion in Paris/Enghien-les-Bains",
       "trust_guarantee": "7-day unconditional money-back guarantee",
       "trust_slots": "Exclusive cohort of 60 participants",
-      "meta_price_label": "Admission Terms"
+      "meta_price_label": "Admission Terms",
+      "meta_tag": "Pilot Cohort"
     },
     "metrics": {
       "participants_val": "60",
@@ -326,7 +389,17 @@ window.ARTINNOVA_TRANSLATIONS = {
       "cities_val": "02",
       "cities_label": "Connected UNESCO creative cities",
       "awards_val": "04",
-      "awards_label": "Full international award immersions"
+      "awards_label": "Full international award immersions",
+      "slots": "international places",
+      "slots_sub": "50 Brazil · 10 France",
+      "br_slots": "participants in Brazil",
+      "br_slots_sub": "40 paid · 10 social fellowships",
+      "fr_slots": "participants in France",
+      "fr_slots_sub": "100% social fellowships",
+      "travel_awards": "super travel awards",
+      "travel_awards_sub": "2 BR to France · 2 FR to Brazil",
+      "mission": "continuous mission",
+      "mission_sub": "turning ideas into bridges"
     },
     "experience": {
       "eyebrow": "01 — The experience",
@@ -349,7 +422,10 @@ window.ARTINNOVA_TRANSLATIONS = {
           "title": "Connect",
           "desc": "Meet fellow participants, mentors and creative networks, opening new bilateral Brazil–France opportunities."
         }
-      ]
+      ],
+      "quote": "\"Mastering digital tools is not enough: we must build projects with purpose, artistic sensibility, and the ability to dialogue with international networks.\"",
+      "quote_author": "Curatorial Guidelines · ArtInnova Residency",
+      "media_caption": "International Co-creation Atelier · Interdisciplinary Methodologies"
     },
     "stripe": "CREATE. EXPERIMENT. SHARE. CONNECT.",
     "audience": {
@@ -371,7 +447,9 @@ window.ARTINNOVA_TRANSLATIONS = {
       "title_accent": "without borders.",
       "intro": "The pilot cohort stems from active cooperation between Campina Grande, Brazil, and Enghien-les-Bains, France, connecting global creative territories.",
       "p1": "International cooperation and the mobilization of the Brazilian Network of UNESCO Creative Cities (RBCC) expand possibilities for encounters between repertoires, challenges and solutions. Specific partner institutions and masters will be revealed upon confirmation.",
-      "disclaimer": "References to the RBCC and Creative Cities describe collaborative networks; they do not imply direct UNESCO certification or institutional endorsement for the Residency."
+      "disclaimer": "References to the RBCC and Creative Cities describe collaborative networks; they do not imply direct UNESCO certification or institutional endorsement for the Residency.",
+      "media_tag": "Connected Territories",
+      "media_caption": "International Cooperation · Campina Grande ✕ Enghien-les-Bains"
     },
     "journey": {
       "eyebrow": "04 — Learning programme · provisional calendar",
@@ -418,6 +496,33 @@ window.ARTINNOVA_TRANSLATIONS = {
           "title": "International Immersion",
           "desc": "Rich in-person international creative experience for the four award recipients."
         }
+      ],
+      "steps": [
+        {
+          "step": "STAGE 01 · DECEMBER 2026",
+          "title": "Onboarding & Preparation",
+          "desc": "Cohort kickoff, methodological alignment, platform onboarding, initial networking, and orientation in the international dynamic."
+        },
+        {
+          "step": "STAGE 02 · JANUARY 2027",
+          "title": "Foundations & Repertoire",
+          "desc": "Immersion in Media Arts languages, contemporary references, ethics, artificial intelligence, and challenge framing."
+        },
+        {
+          "step": "STAGE 03 · FEBRUARY 2027",
+          "title": "Ideation & Prototyping",
+          "desc": "Concept development in interdisciplinary teams, rapid feasibility tests, and initial mentoring sessions."
+        },
+        {
+          "step": "STAGE 04 · MARCH 2027",
+          "title": "Development & Maturation",
+          "desc": "Technical refinement of proposals, workshops with international guests, and preparation for the jury panel."
+        },
+        {
+          "step": "STAGE 05 · APRIL 2027",
+          "title": "HackArtThon & Showcase",
+          "desc": "Closing marathon, collective project exhibition, and announcement of the award recipients traveling to France and Brazil."
+        }
       ]
     },
     "award": {
@@ -454,7 +559,9 @@ window.ARTINNOVA_TRANSLATIONS = {
           "desc": "Showcase and exposure of your project to international cultural networks, digital festivals, and potential backers."
         }
       ],
-      "footer_title": "Clear and Transparent Criteria:"
+      "footer_title": "Clear and Transparent Criteria:",
+      "br_flag": "🇧🇷 Brazil",
+      "fr_flag": "🇫🇷 France"
     },
     "pricing": {
       "eyebrow": "06 — Tuition & Confidence",
@@ -472,7 +579,19 @@ window.ARTINNOVA_TRANSLATIONS = {
       "g1_title": "Try the First Week Risk-Free",
       "g1_desc": "Once enrolled, you have 7 calendar days to experience the first sessions and meet the mentors. If for any personal or scheduling reason you choose not to proceed, simply email us: we will refund 100% of your fee promptly, with no questions asked.",
       "g2_title": "Commitment to Practical Knowledge Growth",
-      "g2_desc": "If you attend at least 80% of scheduled sessions, complete the hands-on milestones, and sincerely find that the residency did not provide tangible value to your creative and professional trajectory, you may request a full reimbursement review."
+      "g2_desc": "If you attend at least 80% of scheduled sessions, complete the hands-on milestones, and sincerely find that the residency did not provide tangible value to your creative and professional trajectory, you may request a full reimbursement review.",
+      "slots_badge": "50 Places",
+      "benefits": [
+        "4 months of hands-on ateliers and applied training",
+        "Full eligibility for in-person immersion fellowships in France",
+        "Direct access to masters, curators, and international community",
+        "Official ArtInnova International Residency certification"
+      ],
+      "guarantee_kicker": "ARTINNOVA FORMAL COMMITMENT",
+      "g1_badge": "Guarantee 01 · 7-Day Unconditional",
+      "g1_status": "100% Refund",
+      "g2_badge": "Guarantee 02 · Knowledge Growth",
+      "g2_status": "Full Reimbursement"
     },
     "form": {
       "eyebrow": "07 — Next step",
@@ -499,7 +618,16 @@ window.ARTINNOVA_TRANSLATIONS = {
       "btn_submit": "Express interest ↗",
       "status_success": "Expression of interest sent successfully! We have sent a confirmation email to you and our team will get in touch shortly.",
       "mail_subject": "Interest in ArtInnova Residency — ",
-      "mail_intro": "Expression of interest — ArtInnova International Residency"
+      "mail_intro": "Expression of interest — ArtInnova International Residency",
+      "perks": [
+        "Early access to official regulations and class schedule",
+        "Priority on the enrolment list before public opening",
+        "Full protection under the Dual 7-Day & Transformation Guarantee"
+      ],
+      "placeholder_name": "Your full name",
+      "placeholder_email": "youremail@example.com",
+      "placeholder_city": "E.g., Paris, France or Campina Grande, Brazil",
+      "placeholder_referral": "Optional"
     },
     "faq": {
       "eyebrow": "Frequently Asked Questions",
@@ -507,28 +635,24 @@ window.ARTINNOVA_TRANSLATIONS = {
       "title_accent": "bridge.",
       "items": [
         {
-          "q": "When does the Residency begin?",
-          "a": "Enrolment and orientation in December 2026; training from January to April 2027; HackArtThon in April; immersion for award recipients in June 2027."
+          "q": "Do I need to be a professional artist to participate?",
+          "a": "No. The residency is designed for hybrid profiles: creators, designers, developers, researchers, and managers. The essential requirement is professional or academic maturity and genuine interest in creating and collaborating."
         },
         {
-          "q": "What is the tuition fee and payment conditions?",
-          "a": "In Brazil: BRL 3,000 (up to 10 × BRL 300 on credit card). Internationally: approx. $ 550 USD or € 500 EUR with standard installment options at official checkout."
+          "q": "How does the International Travel Super Award work?",
+          "a": "Four selected residents (two from Brazil and two from France) will receive round-trip airfare and accommodation for a 10-day immersion at the Centre des Arts in Enghien-les-Bains (Greater Paris) or Campina Grande, including ateliers, mentoring, and project showcases."
         },
         {
-          "q": "Do I need to be an accomplished artist or programmer?",
-          "a": "Not at all. The programme is interdisciplinary and welcomes people with diverse backgrounds in design, education, management, technology and arts."
+          "q": "How does the Dual 7-Day & Transformation Guarantee work?",
+          "a": "You have 7 days after starting to withdraw and receive 100% of your money back with no questions asked. Furthermore, if you actively participate throughout the residency and verify that it brought no tangible value, you may request a full refund review at the end of the programme."
         },
         {
-          "q": "Who are the instructors and what is the class format?",
-          "a": "The team will release confirmed mentors from Brazil and France, workload hours and the hybrid model (asynchronous studios + live collaborative sessions) prior to registration."
+          "q": "What is the activity format (online or in-person)?",
+          "a": "The programme is hybrid: weekly live online sessions, continuous follow-up in our virtual atelier, and hands-on immersion moments (such as the HackArtThon and the awardees’ exchange trip)."
         },
         {
-          "q": "How does the international immersion award work?",
-          "a": "Four participants will be selected (two from Brazil, two from France). In Brazil, paid tuition offers no bias over social fellowships. Selection happens at the April HackArtThon."
-        },
-        {
-          "q": "Will participants receive an official certificate?",
-          "a": "Yes. Certification terms and partner institution seals will be announced before the start of the residency."
+          "q": "How do social scholarships / fellowships work?",
+          "a": "The programme includes 10 full social places for Brazil and 10 social places for France. Socioeconomic and territorial representation criteria will be detailed when the social selection call opens."
         }
       ]
     },
@@ -603,7 +727,8 @@ window.ARTINNOVA_TRANSLATIONS = {
       "award_callout": "Super Premio: Inmersión Internacional en París/Enghien-les-Bains",
       "trust_guarantee": "Garantía incondicional de 7 días",
       "trust_slots": "Cohorte exclusiva de 60 participantes",
-      "meta_price_label": "Condición de Matrícula"
+      "meta_price_label": "Condición de Matrícula",
+      "meta_tag": "Cohorte Piloto"
     },
     "metrics": {
       "participants_val": "60",
@@ -613,7 +738,17 @@ window.ARTINNOVA_TRANSLATIONS = {
       "cities_val": "02",
       "cities_label": "Ciudades creativas UNESCO conectadas",
       "awards_val": "04",
-      "awards_label": "Inmersiones internacionales premiadas"
+      "awards_label": "Inmersiones internacionales premiadas",
+      "slots": "plazas internacionales",
+      "slots_sub": "50 Brasil · 10 Francia",
+      "br_slots": "participantes en Brasil",
+      "br_slots_sub": "40 pagas · 10 becas sociales",
+      "fr_slots": "participantes en Francia",
+      "fr_slots_sub": "100% becas sociales",
+      "travel_awards": "super premios de viaje",
+      "travel_awards_sub": "2 BR a Francia · 2 FR a Brasil",
+      "mission": "misión continua",
+      "mission_sub": "transformar ideas en puentes"
     },
     "experience": {
       "eyebrow": "01 — La experiencia",
@@ -636,7 +771,10 @@ window.ARTINNOVA_TRANSLATIONS = {
           "title": "Conectar",
           "desc": "Conocer participantes, mentores y redes internacionales, abriendo nuevas oportunidades de colaboración Brasil–Francia."
         }
-      ]
+      ],
+      "quote": "\"No basta con dominar herramientas digitales: es necesario construir proyectos con propósito, sensibilidad artística y capacidad de dialogar con redes internacionales.\"",
+      "quote_author": "Directriz Curatorial · Residencia ArtInnova",
+      "media_caption": "Atelier de Co-creación Internacional · Metodologías Interdisciplinarias"
     },
     "stripe": "CREAR. EXPERIMENTAR. COMPARTIR. CONECTAR.",
     "audience": {
@@ -658,7 +796,9 @@ window.ARTINNOVA_TRANSLATIONS = {
       "title_accent": "sin fronteras.",
       "intro": "La cohorte piloto surge de la colaboración directa entre Campina Grande (Brasil) y Enghien-les-Bains (Francia), en diálogo con redes creativas internacionales.",
       "p1": "La cooperación internacional y la Red Brasileña de Ciudades Creativas de la UNESCO (RBCC) potencian el intercambio entre perspectivas, desafíos y soluciones. La confirmación de instituciones y mentores será comunicada oportunamente.",
-      "disclaimer": "Las referencias a la RBCC y Ciudades Creativas describen redes de cooperación; no constituyen aval ni certificación institucional directa de la UNESCO para la Residencia."
+      "disclaimer": "Las referencias a la RBCC y Ciudades Creativas describen redes de cooperación; no constituyen aval ni certificación institucional directa de la UNESCO para la Residencia.",
+      "media_tag": "Territorios Conectados",
+      "media_caption": "Cooperación Internacional · Campina Grande ✕ Enghien-les-Bains"
     },
     "journey": {
       "eyebrow": "04 — Programa formativo · calendario marco provisional",
@@ -705,6 +845,33 @@ window.ARTINNOVA_TRANSLATIONS = {
           "title": "Inmersión Internacional",
           "desc": "Experiencia presencial para los cuatro participantes premiados."
         }
+      ],
+      "steps": [
+        {
+          "step": "ETAPA 01 · DICIEMBRE 2026",
+          "title": "Acogida y Preparación",
+          "desc": "Presentación de la cohorte, alineación metodológica, plataformas, primeros contactos y ambientación en la dinámica internacional."
+        },
+        {
+          "step": "ETAPA 02 · ENERO 2027",
+          "title": "Fundamentos y Repertorio",
+          "desc": "Inmersión en lenguajes de Artes Mediáticas, referencias contemporáneas, ética, inteligencia artificial y definición de desafíos."
+        },
+        {
+          "step": "ETAPA 03 · FEBRERO 2027",
+          "title": "Ideación y Prototipado",
+          "desc": "Desarrollo de conceptos en equipos interdisciplinarios, pruebas rápidas de viabilidad y primeras sesiones de mentoría."
+        },
+        {
+          "step": "ETAPA 04 · MARZO 2027",
+          "title": "Desarrollo y Maduración",
+          "desc": "Refinamiento técnico de las propuestas, talleres con invitados internacionales y preparación para el jurado evaluador."
+        },
+        {
+          "step": "ETAPA 05 · ABRIL 2027",
+          "title": "HackArtThon y Presentación",
+          "desc": "Maratón de cierre, muestra colectiva de proyectos y anuncio de los premiados que viajan a Francia y Brasil."
+        }
       ]
     },
     "award": {
@@ -741,7 +908,9 @@ window.ARTINNOVA_TRANSLATIONS = {
           "desc": "Exhibición y difusión de tu proyecto ante redes culturales internacionales y festivales digitales."
         }
       ],
-      "footer_title": "Criterios Claros y Transparentes:"
+      "footer_title": "Criterios Claros y Transparentes:",
+      "br_flag": "🇧🇷 Brasil",
+      "fr_flag": "🇫🇷 Francia"
     },
     "pricing": {
       "eyebrow": "06 — Inversión y Seguridad",
@@ -759,7 +928,19 @@ window.ARTINNOVA_TRANSLATIONS = {
       "g1_title": "Prueba la Primera Semana sin Riesgo",
       "g1_desc": "Tras la confirmación de tu matrícula, cuentas con 7 días para participar en los primeros encuentros y conocer la metodología. Si decides no continuar por cualquier motivo, basta con un correo electrónico: reembolsamos el 100% de tu dinero sin burocracia.",
       "g2_title": "Compromiso con tu Evolución Práctica",
-      "g2_desc": "Si asistes a al menos el 80% de las actividades y, al finalizar los 4 meses, evalúas de buena fe que los contenidos no aportaron valor a tu carrera artística o profesional, podrás solicitar la devolución integral de la matrícula."
+      "g2_desc": "Si asistes a al menos el 80% de las actividades y, al finalizar los 4 meses, evalúas de buena fe que los contenidos no aportaron valor a tu carrera artística o profesional, podrás solicitar la devolución integral de la matrícula.",
+      "slots_badge": "50 Plazas",
+      "benefits": [
+        "4 meses de ateliers prácticos y formación aplicada",
+        "Elegibilidad integral para las becas de inmersión presencial en Francia",
+        "Acceso directo a maestros, curadores y comunidad internacional",
+        "Certificación internacional de la Residencia ArtInnova"
+      ],
+      "guarantee_kicker": "COMPROMISO FORMAL ARTINNOVA",
+      "g1_badge": "Garantía 01 · 7 Días Incondicional",
+      "g1_status": "100% Reembolso",
+      "g2_badge": "Garantía 02 · Evolución del Conocimiento",
+      "g2_status": "Devolución Integral"
     },
     "form": {
       "eyebrow": "07 — Próximo paso",
@@ -786,7 +967,16 @@ window.ARTINNOVA_TRANSLATIONS = {
       "btn_submit": "Manifestar interés ↗",
       "status_success": "¡Manifestación de interés enviada con éxito! Le hemos enviado un correo de confirmación y nuestro equipo se comunicará pronto.",
       "mail_subject": "Interés en la Residencia ArtInnova — ",
-      "mail_intro": "Manifestación de interés — Residencia Internacional ArtInnova"
+      "mail_intro": "Manifestación de interés — Residencia Internacional ArtInnova",
+      "perks": [
+        "Acceso previo al reglamento y cronograma de clases",
+        "Prioridad en la lista de matrículas antes de la apertura pública",
+        "Protección integral con la Doble Garantía de 7 días y Transformación"
+      ],
+      "placeholder_name": "Tu nombre completo",
+      "placeholder_email": "tucorreo@ejemplo.com",
+      "placeholder_city": "Ej: Madrid, España o Campina Grande, Brasil",
+      "placeholder_referral": "Opcional"
     },
     "faq": {
       "eyebrow": "Preguntas frecuentes",
@@ -794,28 +984,24 @@ window.ARTINNOVA_TRANSLATIONS = {
       "title_accent": "puente.",
       "items": [
         {
-          "q": "¿Cuándo inicia la Residencia?",
-          "a": "Inscripciones en diciembre de 2026; formación entre enero y abril de 2027; HackArtThon en abril e inmersión de premiados en junio de 2027."
+          "q": "¿Necesito ser artista profesional para participar?",
+          "a": "No. La residencia está orientada a perfiles híbridos: creadores, diseñadores, desarrolladores, investigadores y gestores. El requisito esencial es contar con madurez profesional o académica e interés concreto en crear y colaborar."
         },
         {
-          "q": "¿Cuál es el costo de matrícula y métodos de pago?",
-          "a": "En Brasil: BRL 3.000 (hasta 10 cuotas de BRL 300 con tarjeta). Internacionalmente: aprox. € 500 EUR o $ 550 USD según tipo de cambio oficial."
+          "q": "¿Cómo funciona el Super Premio de Viaje Internacional?",
+          "a": "Cuatro residentes seleccionados (dos de Brasil y dos de Francia) tendrán pasajes aéreos y alojamiento costeados para una inmersión de 10 días en el Centre des Arts de Enghien-les-Bains (región de París) o Campina Grande, con talleres, mentorías y muestra de obras."
         },
         {
-          "q": "¿Debo ser artista consagrado o programador?",
-          "a": "No es necesario. El programa busca perfiles interdisciplinarios con curiosidad y ganas de cocrear en arte y tecnología."
+          "q": "¿Cómo funciona la Doble Garantía de 7 días y de Transformación?",
+          "a": "Tienes 7 días tras el inicio para desistir y recibir el 100% de tu dinero de vuelta sin preguntas. Además, si participas activamente en toda la residencia y compruebas que no aportó valor, puedes solicitar el reembolso integral al finalizar el programa."
         },
         {
-          "q": "¿Quiénes serán los mentores y cuál es el formato?",
-          "a": "Los nombres confirmados de Brasil y Francia, la carga horaria y el esquema híbrido se anunciarán antes de la apertura de inscripciones."
+          "q": "¿Cuál es el formato de las actividades (online o presencial)?",
+          "a": "La formación es híbrida: encuentros síncronos semanales en línea, seguimiento continuo en atelier virtual y momentos de inmersión práctica (como el HackArtThon y el viaje de intercambio de los premiados)."
         },
         {
-          "q": "¿Cómo funciona el premio de inmersión internacional?",
-          "a": "Cuatro participantes serán seleccionados (dos de Brasil y dos de Francia). En Brasil, las matrículas pagas no tienen ventaja sobre las becas sociales."
-        },
-        {
-          "q": "¿El programa entrega certificado?",
-          "a": "Sí. Las condiciones de certificación y las instituciones aliadas serán informadas antes del inicio de la formación."
+          "q": "¿Cómo funcionan las becas / matrículas sociales?",
+          "a": "El proyecto contempla 10 plazas sociales integrales para Brasil y 10 plazas sociales para Francia. Los criterios socioeconómicos y de representatividad territorial se detallarán en la convocatoria de selección social."
         }
       ]
     },
@@ -890,7 +1076,8 @@ window.ARTINNOVA_TRANSLATIONS = {
       "award_callout": "Super Prix : Immersion Internationale à Paris / Enghien-les-Bains",
       "trust_guarantee": "Garantie satisfait ou remboursé 7 jours",
       "trust_slots": "Promotion exclusive de 60 participants",
-      "meta_price_label": "Modalités d'inscription"
+      "meta_price_label": "Modalités d'inscription",
+      "meta_tag": "Promotion Pilote"
     },
     "metrics": {
       "participants_val": "60",
@@ -900,7 +1087,17 @@ window.ARTINNOVA_TRANSLATIONS = {
       "cities_val": "02",
       "cities_label": "Villes créatives UNESCO connectées",
       "awards_val": "04",
-      "awards_label": "Séjours d’immersion internationale récompensés"
+      "awards_label": "Séjours d’immersion internationale récompensés",
+      "slots": "places internationales",
+      "slots_sub": "50 Brésil · 10 France",
+      "br_slots": "participants au Brésil",
+      "br_slots_sub": "40 payantes · 10 bourses sociales",
+      "fr_slots": "participants en France",
+      "fr_slots_sub": "100% bourses sociales",
+      "travel_awards": "super prix de voyage",
+      "travel_awards_sub": "2 BR vers France · 2 FR vers Brésil",
+      "mission": "mission continue",
+      "mission_sub": "transformer les idées en passerelles"
     },
     "experience": {
       "eyebrow": "01 — L’expérience",
@@ -923,7 +1120,10 @@ window.ARTINNOVA_TRANSLATIONS = {
           "title": "Relier",
           "desc": "Rencontrer des pairs, mentors et réseaux créatifs d'excellence, ouvrant des horizons inédits entre le Brésil et la France."
         }
-      ]
+      ],
+      "quote": "« Il ne suffit pas de maîtriser les outils numériques : il faut bâtir des projets porteurs de sens, de sensibilité artistique et capables de dialoguer avec des réseaux internationaux. »",
+      "quote_author": "Ligne Curatoriale · Résidence ArtInnova",
+      "media_caption": "Atelier de Co-création Internationale · Méthodologies Interdisciplinaires"
     },
     "stripe": "CRÉER. EXPÉRIMENTER. PARTAGER. RELIER.",
     "audience": {
@@ -945,7 +1145,9 @@ window.ARTINNOVA_TRANSLATIONS = {
       "title_accent": "sans frontières.",
       "intro": "Cette promotion pilote naît de la coopération active entre Campina Grande (Brésil) et Enghien-les-Bains (France), en résonance avec les territoires créatifs mondiaux.",
       "p1": "La coopération internationale et le Réseau Brésilien des Villes Créatives de l'UNESCO (RBCC) favorisent les synergies entre répertoires, défis et innovations. Les institutions partenaires et mentors invités seront annoncés dès validation.",
-      "disclaimer": "Les références au réseau RBCC et aux Villes Créatives décrivent des dynamiques de coopération ; elles n'impliquent pas une certification ou labellisation directe de l'UNESCO pour la Résidence."
+      "disclaimer": "Les références au réseau RBCC et aux Villes Créatives décrivent des dynamiques de coopération ; elles n'impliquent pas une certification ou labellisation directe de l'UNESCO pour la Résidence.",
+      "media_tag": "Territoires Connectés",
+      "media_caption": "Coopération Internationale · Campina Grande ✕ Enghien-les-Bains"
     },
     "journey": {
       "eyebrow": "04 — Programme formatif · calendrier prévisionnel",
@@ -992,6 +1194,33 @@ window.ARTINNOVA_TRANSLATIONS = {
           "title": "Immersion Internationale",
           "desc": "Séjour d'expérimentation et de création pour les quatre lauréats."
         }
+      ],
+      "steps": [
+        {
+          "step": "ÉTAPE 01 · DÉCEMBRE 2026",
+          "title": "Accueil & Préparation",
+          "desc": "Présentation de la promotion, alignement méthodologique, prise en main des plateformes, premiers échanges et intégration internationale."
+        },
+        {
+          "step": "ÉTAPE 02 · JANVIER 2027",
+          "title": "Fondamentaux & Répertoire",
+          "desc": "Immersion dans les langages des Arts Médiatiques, références contemporaines, éthique, intelligence artificielle et cadrage des défis."
+        },
+        {
+          "step": "ÉTAPE 03 · FÉVRIER 2027",
+          "title": "Idéation & Prototypage",
+          "desc": "Développement de concepts en équipes interdisciplinaires, tests rapides de faisabilité et premières sessions de mentorat."
+        },
+        {
+          "step": "ÉTAPE 04 · MARS 2027",
+          "title": "Développement & Maturation",
+          "desc": "Affinement technique des propositions, ateliers avec des invités internationaux et préparation devant le jury."
+        },
+        {
+          "step": "ÉTAPE 05 · AVRIL 2027",
+          "title": "HackArtThon & Présentation",
+          "desc": "Marathon de clôture, exposition collective des projets et annonce des lauréats qui voyageront en France et au Brésil."
+        }
       ]
     },
     "award": {
@@ -1028,7 +1257,9 @@ window.ARTINNOVA_TRANSLATIONS = {
           "desc": "Diffusion et visibilité de vos œuvres auprès des réseaux culturels et festivals internationaux."
         }
       ],
-      "footer_title": "Critères Clairs et Équitables :"
+      "footer_title": "Critères Clairs et Équitables :",
+      "br_flag": "🇧🇷 Brésil",
+      "fr_flag": "🇫🇷 France"
     },
     "pricing": {
       "eyebrow": "06 — Tarifs & Sérénité",
@@ -1046,7 +1277,19 @@ window.ARTINNOVA_TRANSLATIONS = {
       "g1_title": "Découvrez la Première Semaine sans Risque",
       "g1_desc": "Dès votre inscription validée, vous disposez de 7 jours consécutifs pour tester le programme. Si pour toute raison personnelle ou professionnelle vous souhaitez vous désister, un simple courriel suffit : nous vous remboursons 100 % du montant sans démarche complexe.",
       "g2_title": "Engagement de Progression Pratique",
-      "g2_desc": "Si vous assistez à au moins 80 % des ateliers et estimez en toute bonne foi, au terme des 4 mois, que la formation n'a pas enrichi votre pratique artistique et professionnelle, vous pourrez demander le remboursement intégral des frais d'inscription."
+      "g2_desc": "Si vous assistez à au moins 80 % des ateliers et estimez en toute bonne foi, au terme des 4 mois, que la formation n'a pas enrichi votre pratique artistique et professionnelle, vous pourrez demander le remboursement intégral des frais d'inscription.",
+      "slots_badge": "50 Places",
+      "benefits": [
+        "4 mois d’ateliers pratiques et de formation appliquée",
+        "Éligibilité complète aux bourses d’immersion sur place en France",
+        "Accès direct aux maîtres, commissaires et à la communauté internationale",
+        "Certification internationale de la Résidence ArtInnova"
+      ],
+      "guarantee_kicker": "ENGAGEMENT FORMEL ARTINNOVA",
+      "g1_badge": "Garantie 01 · 7 Jours Inconditionnelle",
+      "g1_status": "100% Remboursé",
+      "g2_badge": "Garantie 02 · Progression des Acquis",
+      "g2_status": "Remboursement Intégral"
     },
     "form": {
       "eyebrow": "07 — Prochaine étape",
@@ -1073,7 +1316,16 @@ window.ARTINNOVA_TRANSLATIONS = {
       "btn_submit": "Exprimer mon intérêt ↗",
       "status_success": "Manifestation d'intérêt envoyée avec succès ! Nous vous avons envoyé un e-mail de confirmation et notre équipe vous contactera bientôt.",
       "mail_subject": "Intérêt pour la Résidence ArtInnova — ",
-      "mail_intro": "Manifestation d'intérêt — Résidence Internationale ArtInnova"
+      "mail_intro": "Manifestation d'intérêt — Résidence Internationale ArtInnova",
+      "perks": [
+        "Accès anticipé au règlement et au calendrier des ateliers",
+        "Priorité sur la liste d’inscription avant l’ouverture publique",
+        "Protection intégrale grâce à la Double Garantie 7 jours et Transformation"
+      ],
+      "placeholder_name": "Votre nom complet",
+      "placeholder_email": "votre-email@exemple.com",
+      "placeholder_city": "Ex : Enghien-les-Bains, France ou Campina Grande, Brésil",
+      "placeholder_referral": "Optionnel"
     },
     "faq": {
       "eyebrow": "Foire aux questions",
@@ -1081,28 +1333,24 @@ window.ARTINNOVA_TRANSLATIONS = {
       "title_accent": "passerelle.",
       "items": [
         {
-          "q": "Quand débute la Résidence ?",
-          "a": "Inscriptions en décembre 2026 ; formation de janvier à avril 2027 ; HackArtThon en avril ; séjour d'immersion des lauréats en juin 2027."
+          "q": "Dois-je être un(e) artiste professionnel(le) pour participer ?",
+          "a": "Non. La résidence s’adresse aux profils hybrides : créateurs, designers, développeurs, chercheurs et gestionnaires. Le prérequis essentiel est une maturité professionnelle ou académique et une réelle envie de créer et collaborer."
         },
         {
-          "q": "Quels sont les frais d'inscription et modalités de paiement ?",
-          "a": "Pour les résidents brésiliens : 3 000 BRL (jusqu'à 10 × 300 BRL par carte). À l'international : environ 500 € EUR ou 550 $ USD avec facilités de règlement."
+          "q": "Comment fonctionne le Super Prix de Voyage International ?",
+          "a": "Quatre résidents sélectionnés (deux du Brésil et deux de France) bénéficient de billets d’avion et d’un hébergement pris en charge pour une immersion de 10 jours au Centre des Arts d’Enghien-les-Bains (région parisienne) ou à Campina Grande, avec ateliers, mentorat et exposition."
         },
         {
-          "q": "Dois-je être un artiste chevronné ou un programmeur ?",
-          "a": "Non. Le programme est foncièrement interdisciplinaire et accueille les passionnés de création, design, pédagogie, gestion et technologies."
+          "q": "Comment fonctionne la Double Garantie 7 jours et Transformation ?",
+          "a": "Vous disposez de 7 jours après le début pour vous désister et être remboursé à 100 % sans aucune justification. De plus, si vous participez activement à toute la résidence et constatez qu’elle n’a pas apporté de valeur tangible, vous pouvez demander un remboursement intégral en fin de parcours."
         },
         {
-          "q": "Qui sont les intervenants et quel est le format ?",
-          "a": "Les noms confirmés des maîtres brésiliens et français, le volume horaire et le format hybride (ateliers asynchrones et sessions synchrones) seront dévoilés avant l'ouverture des inscriptions."
+          "q": "Quel est le format des activités (en ligne ou présentiel) ?",
+          "a": "La formation est hybride : rencontres synchrones hebdomadaires en ligne, suivi continu en atelier virtuel et temps forts d’immersion pratique (tels que le HackArtThon et le séjour d’échange des lauréats)."
         },
         {
-          "q": "Comment fonctionne le prix d'immersion internationale ?",
-          "a": "Quatre lauréats seront récompensés (deux Brésiliens et deux Français). Au Brésil, les inscrits payants et boursiers bénéficient d'une stricte égalité de chances lors de la sélection au HackArtThon d'avril."
-        },
-        {
-          "q": "La Résidence délivre-t-elle une attestation ?",
-          "a": "Oui. Les conditions de certification internationale et les labels institutionnels associés seront précisés avant le début du cycle."
+          "q": "Comment fonctionnent les bourses / inscriptions sociales ?",
+          "a": "Le programme prévoit 10 places sociales intégrales pour le Brésil et 10 places sociales pour la France. Les critères socio-économiques et territoriaux seront précisés lors de l’ouverture de l’appel à candidatures."
         }
       ]
     },

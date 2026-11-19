@@ -64,7 +64,7 @@ $theme_uri = get_template_directory_uri();
           <div class="hero-meta-box" data-tilt>
             <div class="hero-meta-header">
               <div class="hero-meta-title" data-i18n="hero.meta_dates">INSCRIÇÕES 2026 · FORMAÇÃO JANEIRO–ABRIL 2027</div>
-              <span class="hero-meta-tag">Turma Piloto</span>
+              <span class="hero-meta-tag" data-i18n="hero.meta_tag">Turma Piloto</span>
             </div>
             <p class="hero-meta-desc" data-i18n="hero.meta_text">Uma experiência internacional de formação, criação e colaboração entre Campina Grande e Enghien-les-Bains. 60 participantes: 50 no Brasil (40 matrículas pagas e 10 sociais) e 10 matrículas sociais na França.</p>
             <div class="hero-meta-price-badge">
@@ -152,7 +152,7 @@ $theme_uri = get_template_directory_uri();
                 <source srcset="<?php echo esc_url($theme_uri); ?>/assets/images/atelier_cocreation.webp" type="image/webp">
                 <img src="<?php echo esc_url($theme_uri); ?>/assets/images/atelier_cocreation.jpg" alt="Atelier de co-criação internacional de artes midiáticas" class="experience-img">
               </picture>
-              <div class="experience-media-caption">Atelier de Co-criação Internacional · Metodologias Interdisciplinares</div>
+              <div class="experience-media-caption" data-i18n="experience.media_caption">Atelier de Co-criação Internacional · Metodologias Interdisciplinares</div>
             </div>
           </div>
 
@@ -221,23 +221,23 @@ $theme_uri = get_template_directory_uri();
         <div id="audience-list-container" class="audience-list">
           <div class="audience-item border-left-blue">
             <span class="audience-item-num num-blue">01</span>
-            <span class="audience-item-text">Criadores, artistas, designers e realizadores visuais</span>
+            <span class="audience-item-text" data-i18n="audience.items.0">Criadores, artistas, designers e realizadores visuais</span>
           </div>
           <div class="audience-item border-left-green">
             <span class="audience-item-num num-green">02</span>
-            <span class="audience-item-text">Empreendedores, tecnólogos e profissionais de inovação</span>
+            <span class="audience-item-text" data-i18n="audience.items.1">Empreendedores, tecnólogos e profissionais de inovação</span>
           </div>
           <div class="audience-item border-left-yellow">
             <span class="audience-item-num num-yellow">03</span>
-            <span class="audience-item-text">Educadores, pesquisadores e estudantes com vivência profissional</span>
+            <span class="audience-item-text" data-i18n="audience.items.2">Educadores, pesquisadores e estudantes com vivência profissional</span>
           </div>
           <div class="audience-item border-left-red">
             <span class="audience-item-num num-red">04</span>
-            <span class="audience-item-text">Gestores de cultura, tecnologia e desenvolvimento territorial</span>
+            <span class="audience-item-text" data-i18n="audience.items.3">Gestores de cultura, tecnologia e desenvolvimento territorial</span>
           </div>
           <div class="audience-item border-left-cyan">
             <span class="audience-item-num num-cyan">05</span>
-            <span class="audience-item-text">Profissionais de outras áreas interessados em criar com Artes Midiáticas</span>
+            <span class="audience-item-text" data-i18n="audience.items.4">Profissionais de outras áreas interessados em criar com Artes Midiáticas</span>
           </div>
         </div>
       </div>
@@ -256,8 +256,8 @@ $theme_uri = get_template_directory_uri();
             <img src="<?php echo esc_url($theme_uri); ?>/assets/images/international_bridge_light.jpg" alt="Ponte internacional conectando cidades criativas sob a luz do dia">
           </picture>
           <div class="media-frame-overlay">
-            <span class="frame-tag bg-blue">Territórios Conectados</span>
-            <div class="media-frame-caption">Cooperação Internacional · Campina Grande ✕ Enghien-les-Bains</div>
+            <span class="frame-tag bg-blue" data-i18n="bridges.media_tag">Territórios Conectados</span>
+            <div class="media-frame-caption" data-i18n="bridges.media_caption">Cooperação Internacional · Campina Grande ✕ Enghien-les-Bains</div>
           </div>
         </div>
 
@@ -398,7 +398,7 @@ $theme_uri = get_template_directory_uri();
         <div class="award-grid">
           <article class="award-card border-accent-blue" data-tilt>
             <div class="award-card-top">
-              <span class="award-flag-badge">🇧🇷 Brasil</span>
+              <span class="award-flag-badge" data-i18n="award.br_flag">🇧🇷 Brasil</span>
               <div class="award-tag tag-blue" data-i18n="award.br_tag">02 VAGAS PREMIADAS</div>
             </div>
             <h3 class="award-title" data-i18n="award.br_title">Dois premiados entre os 50 participantes brasileiros</h3>
@@ -407,7 +407,7 @@ $theme_uri = get_template_directory_uri();
 
           <article class="award-card border-accent-cyan" data-tilt>
             <div class="award-card-top">
-              <span class="award-flag-badge">🇫🇷 França</span>
+              <span class="award-flag-badge" data-i18n="award.fr_flag">🇫🇷 França</span>
               <div class="award-tag tag-cyan" data-i18n="award.fr_tag">02 VAGAS PREMIADAS</div>
             </div>
             <h3 class="award-title" data-i18n="award.fr_title">Dois premiados entre os 10 participantes franceses</h3>
@@ -442,7 +442,7 @@ $theme_uri = get_template_directory_uri();
           <div class="card-matricula-brasil" data-tilt>
             <div class="pricing-card-header-banner">
               <span data-i18n="pricing.badge">Matrícula Brasil · Turma 2026</span>
-              <span>50 Vagas</span>
+              <span data-i18n="pricing.slots_badge">50 Vagas</span>
             </div>
             <div class="pricing-card-body">
               <div class="price-display">
@@ -452,10 +452,10 @@ $theme_uri = get_template_directory_uri();
               <div class="price-sub" data-i18n="pricing.price_sub">Condição especial de parcelamento. Checkout oficial e confirmação das condições comerciais sujeitos à abertura oficial das vagas.</div>
 
               <ul class="pricing-benefits-list">
-                <li><span class="check-bullet">✓</span> <span>4 meses de ateliês práticos e formação aplicada</span></li>
-                <li><span class="check-bullet">✓</span> <span>Elegibilidade integral às bolsas de imersão presencial na França</span></li>
-                <li><span class="check-bullet">✓</span> <span>Acesso direto a mestres, curadores e comunidade internacional</span></li>
-                <li><span class="check-bullet">✓</span> <span>Certificação internacional da Residência ArtInnova</span></li>
+                <li><span class="check-bullet">✓</span> <span data-i18n="pricing.benefits.0">4 meses de ateliês práticos e formação aplicada</span></li>
+                <li><span class="check-bullet">✓</span> <span data-i18n="pricing.benefits.1">Elegibilidade integral às bolsas de imersão presencial na França</span></li>
+                <li><span class="check-bullet">✓</span> <span data-i18n="pricing.benefits.2">Acesso direto a mestres, curadores e comunidade internacional</span></li>
+                <li><span class="check-bullet">✓</span> <span data-i18n="pricing.benefits.3">Certificação internacional da Residência ArtInnova</span></li>
               </ul>
 
               <a class="btn btn-primary btn-block" href="#inscricao" data-i18n="pricing.cta">Quero me inscrever na turma ↗</a>
@@ -466,7 +466,7 @@ $theme_uri = get_template_directory_uri();
           <div class="card-garantia-transparente" data-tilt>
             <div class="guarantee-seal-header">
               <div class="guarantee-header-text">
-                <span class="guarantee-kicker-badge">COMPROMISSO FORMAL ARTINNOVA</span>
+                <span class="guarantee-kicker-badge" data-i18n="pricing.guarantee_kicker">COMPROMISSO FORMAL ARTINNOVA</span>
                 <h3 class="guarantee-main-title" data-i18n="pricing.guarantee_title">Satisfação Garantida ou Reembolso Integral</h3>
                 <p class="guarantee-subtitle" data-i18n="pricing.guarantee_subtitle">Acreditamos tanto na qualidade dos nossos ateliês que assumimos o compromisso formal com a sua tranquilidade.</p>
               </div>
@@ -478,8 +478,8 @@ $theme_uri = get_template_directory_uri();
             <!-- Garantia 1: 7 Dias Incondicional -->
             <div class="guarantee-box box-incondicional">
               <div class="guarantee-box-header">
-                <span class="badge-guarantee-pill pill-emerald">Garantia 01 · 7 Dias Incondicional</span>
-                <span class="guarantee-status-tag">100% Reembolso</span>
+                <span class="badge-guarantee-pill pill-emerald" data-i18n="pricing.g1_badge">Garantia 01 · 7 Dias Incondicional</span>
+                <span class="guarantee-status-tag" data-i18n="pricing.g1_status">100% Reembolso</span>
               </div>
               <h4 class="guarantee-box-title" data-i18n="pricing.g1_title">Experimente a Primeira Semana sem Risco</h4>
               <p class="guarantee-box-desc" data-i18n="pricing.g1_desc">Após a confirmação da sua matrícula, você tem 7 dias corridos para participar dos primeiros encontros e conhecer nossa metodologia. Se por qualquer motivo pessoal, profissional ou de agenda decidir não continuar, basta nos enviar um e-mail: estornamos 100% do valor pago, sem burocracia nem questionamentos.</p>
@@ -488,8 +488,8 @@ $theme_uri = get_template_directory_uri();
             <!-- Garantia 2: Conhecimento e Transformação -->
             <div class="guarantee-box box-transformacao">
               <div class="guarantee-box-header">
-                <span class="badge-guarantee-pill pill-amber">Garantia 02 · Evolução do Conhecimento</span>
-                <span class="guarantee-status-tag">Devolução Integral</span>
+                <span class="badge-guarantee-pill pill-amber" data-i18n="pricing.g2_badge">Garantia 02 · Evolução do Conhecimento</span>
+                <span class="guarantee-status-tag" data-i18n="pricing.g2_status">Devolução Integral</span>
               </div>
               <h4 class="guarantee-box-title" data-i18n="pricing.g2_title">Compromisso com o Seu Ganho Prático</h4>
               <p class="guarantee-box-desc" data-i18n="pricing.g2_desc">Se você comparecer a pelo menos 80% das atividades propostas e, ao término dos 4 meses de formação, avaliar de boa-fé que os conteúdos e ateliês não agregaram valor para seu percurso artístico e profissional, analisaremos seu caso para a devolução integral da taxa de matrícula.</p>
@@ -516,15 +516,15 @@ $theme_uri = get_template_directory_uri();
           <div class="form-perks-box">
             <div class="perk-row">
               <span class="perk-check">✓</span>
-              <span>Acesso prévio ao regulamento e cronograma de aulas</span>
+              <span data-i18n="form.perks.0">Acesso prévio ao regulamento e cronograma de aulas</span>
             </div>
             <div class="perk-row">
               <span class="perk-check">✓</span>
-              <span>Prioridade na fila de matrículas antes da abertura pública</span>
+              <span data-i18n="form.perks.1">Prioridade na fila de matrículas antes da abertura pública</span>
             </div>
             <div class="perk-row">
               <span class="perk-check">✓</span>
-              <span>Proteção integral com a Dupla Garantia de 7 dias e Transformação</span>
+              <span data-i18n="form.perks.2">Proteção integral com a Dupla Garantia de 7 dias e Transformação</span>
             </div>
           </div>
         </div>
@@ -535,17 +535,17 @@ $theme_uri = get_template_directory_uri();
 
             <div class="field">
               <label for="nome" data-i18n="form.label_name">Nome completo *</label>
-              <input id="nome" name="nome" type="text" required autocomplete="name" maxlength="120" placeholder="Seu nome">
+              <input id="nome" name="nome" type="text" required autocomplete="name" maxlength="120" placeholder="Seu nome" data-i18n-placeholder="form.placeholder_name">
             </div>
 
             <div class="field">
               <label for="email" data-i18n="form.label_email">E-mail de contato *</label>
-              <input id="email" name="email" type="email" required autocomplete="email" maxlength="180" placeholder="seuemail@exemplo.com">
+              <input id="email" name="email" type="email" required autocomplete="email" maxlength="180" placeholder="seuemail@exemplo.com" data-i18n-placeholder="form.placeholder_email">
             </div>
 
             <div class="field">
               <label for="cidade" data-i18n="form.label_city">Cidade / Estado / País *</label>
-              <input id="cidade" name="cidade" type="text" required maxlength="120" placeholder="Ex: Campina Grande, PB ou Paris, França">
+              <input id="cidade" name="cidade" type="text" required maxlength="120" placeholder="Ex: Campina Grande, PB ou Paris, França" data-i18n-placeholder="form.placeholder_city">
             </div>
 
             <div class="field">
@@ -562,7 +562,7 @@ $theme_uri = get_template_directory_uri();
 
             <div class="field">
               <label for="origem" data-i18n="form.label_referral">Quem indicou? (Cidade criativa, Ponto Focal ou parceiro)</label>
-              <input id="origem" name="origem" type="text" maxlength="150" placeholder="Opcional">
+              <input id="origem" name="origem" type="text" maxlength="150" placeholder="Opcional" data-i18n-placeholder="form.placeholder_referral">
             </div>
 
             <div class="field field-checkbox">
